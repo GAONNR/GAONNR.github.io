@@ -1,0 +1,22 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               GAON°NR
+tagline:             'Blog'
+description:         'The blog about Hacking, Programming, Anime, etc.'
+url:                 https://gaonnr.github.io
+baseurl:             ''
+paginate:            5
+
+# About/contact
+author:
+  name:              Junseop Ji
+  url:               https://twitter.com/gaonnarae0403
+  email:             gaon0403@gmail.com
+
+# Custom vars
+version:             0.5.0
