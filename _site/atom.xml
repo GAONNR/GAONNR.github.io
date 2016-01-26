@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>GAON°NR</title>
+ <link href="https://gaonnr.github.io/atom.xml" rel="self"/>
+ <link href="https://gaonnr.github.io/"/>
+ <updated>2016-01-27T04:00:50+09:00</updated>
+ <id>https://gaonnr.github.io</id>
+ <author>
+   <name>Junseop Ji</name>
+   <email>gaon0403@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>신세계에서 다 못읽게 생겼습니다.</title>
+   <link href="https://gaonnr.github.io/2016/01/17/shinsekai_mang/"/>
+   <updated>2016-01-17T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2016/01/17/shinsekai_mang</id>
+   <content type="html">&lt;p&gt;예전에 올린 대로 신세계에서를 빌렸습니다만, 벌써 대여기간이 다 지났네요.&lt;/p&gt;
+
+&lt;p&gt;그동안 영어공부한답시고 / 대회한답시고 핑계대면서 안 읽어온 게 이렇게 됐네요… (사실 태반은 게임하면서 보냈습니다만)&lt;/p&gt;
+
+&lt;p&gt;반납일이 바로 내일, 월요일입니다;;;&lt;/p&gt;
+
+&lt;p&gt;어떻게든 다 읽어야겠어요.&lt;/p&gt;
+
+&lt;p&gt;-수정. 도서관 홈페이지에 연장 신청 서비스가 있길래 대여기간을 연장했습니다.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>블로그 디자인 또 갈아엎었습니다.</title>
+   <link href="https://gaonnr.github.io/2016/01/17/new-design/"/>
+   <updated>2016-01-17T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2016/01/17/new-design</id>
+   <content type="html">&lt;p&gt;그전엔 Jekyll-Bootstrap을 썼습니다만, 왠지 어떻게 해야 할지를 잘 몰라서 뭔가 정보가 쬐끔 더 있어보이는 Jekyll-Now를 clone했어요. (이건 사실 제가 몰라서 그러는 거고, 좀만 배우면 이런거 상관없이 쓸듯한데)&lt;/p&gt;
+
+&lt;p&gt;테마는 Lanyon Theme 적용했습니다. 본문 서체가 Serif체라 따로 설정 안한 윈도우 환경에서 어떻게 보일지 궁금하긴 한데. 괜찮겠죠 뭐.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>책 '신세계에서' 빌려 읽기 시작했습니다.</title>
+   <link href="https://gaonnr.github.io/2016/01/08/begin-reading-sinsekaikara/"/>
+   <updated>2016-01-08T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2016/01/08/begin-reading-sinsekaikara</id>
+   <content type="html">&lt;p&gt;심심해서 학교 도서관을 들렀다가, 책 읽은지도 오래 됐고 교양을 쌓으려는(?)생각에,&lt;/p&gt;
+
+&lt;p&gt;‘신세계에서’를 빌려서 읽기로 했습니다.&lt;/p&gt;
+
+&lt;p&gt;그나저나 학교 도서관에 서브컬쳐 쪽 책 되게 많네요… 라노벨들이 딱 표지만 벗겨져서 꽂혀 있드라구여.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Second Post</title>
+   <link href="https://gaonnr.github.io/2016/01/03/second-test/"/>
+   <updated>2016-01-03T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2016/01/03/second-test</id>
+   <content type="html">&lt;p&gt;Bla Bla&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>First Post</title>
+   <link href="https://gaonnr.github.io/2016/01/03/first-post/"/>
+   <updated>2016-01-03T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2016/01/03/first-post</id>
+   <content type="html">&lt;p&gt;가온나래의 새 페이지 개설을 자축합니다!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>웹폰트 날렸습니다.</title>
+   <link href="https://gaonnr.github.io/2016/01/03/deleted-webfonts/"/>
+   <updated>2016-01-03T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2016/01/03/deleted-webfonts</id>
+   <content type="html">&lt;p&gt;원래는 Spoqa Han Sans KR/JP가 적용되어 있었는데요…
+긱사에서 테스트해볼 때는 별로 문제점을 못 느꼈는데&lt;/p&gt;
+
+&lt;p align=&quot;left&quot;&gt;
+  &lt;img src=&quot;https://lh3.googleusercontent.com/182zoTTFxbNJK3L8mCDQjR8xS5um_Y2AyMy6h8VDUG2ECNCXz4O82Dos28WYLENfu-YL0XRcgiml3RFz5hC140RtWcgelQ9BMn-5N1qTaZnWZ-UmX_7F0hWw4303_af_eRojc-qPjX1tJOiH4SR_KlINqqSqVV6XlynG2R1L5anZhEm9dZ-T11R2tZ3GZHVyx-w5eHTfdRdXdOxS2GW98TIk0VHnTgVVZ8lKwN6qT_x0H1Eq1gUFtzblJijVdahw1N-Pue0zZRf-pUq6XDFDz-Dj7VHuytfZKk8izpE93OMXIDnBShUspd5zlNo69nLwuWoUGcQNKIePGZ8aMUd4RNIow3o0hTA6jaHgYtxzsyB7YhLvQXLGCKcu9GlzuwLdViIT6Tkviqy7O-zVcevxQYb5DfhcaLg76zNk9wcjMo83K9-kzEcxpLtbJetdDzxlK3HT1C5VhcIX1hUQYnGSwjlAWfxXUgG64zpc-XNM1bExPDNWmZB6g1_z0ydOI9wD76Wlo33nvj8Y0O8jbRYdryOgYFTMS801L1cSOPU7DDE0oOVauRC9KxxnShJoCNdTbQBJ=w596-h101-no&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;위 사진과 같이 웹폰트 덕분에 로딩이 무지막지하게 느려진다는 제보를 받아서 그냥 날리기로 했습니다 ㅠ&lt;/p&gt;
+
+&lt;p&gt;여러분 웹브라우저 이쁜폰트 기본으로 설정하시고 쓰세요&lt;/p&gt;
+
+&lt;p&gt;(아니면 맥 쓰던가)&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>About me</title>
+   <link href="https://gaonnr.github.io/2016/01/03/about-me/"/>
+   <updated>2016-01-03T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2016/01/03/about-me</id>
+   <content type="html">&lt;!--
+&lt;p align = &quot;center&quot;&gt;
+  &lt;img src = &quot;/images/About_me.png&quot; width = &quot;250&quot; height = &quot;250&quot;&gt;
+&lt;/p&gt;
+--&gt;
+&lt;p&gt;&lt;img style=&quot;float: right;&quot; src=&quot;https://lh3.googleusercontent.com/M43IvUf1EPiZld93KxkUq80GLz96ILWUEP_VAYLozp9bDZu9a6ifmbsV8EecJizz7lbycTWSbvuqH0mSjKgAiLeD-RhUAlEOewgdDOOL8f2Z4mbVa37nPUAUMKMddH9OXSetKAadmnj5OtWUq64tKgUOSRaW2XzRX-mypvihqwul0BNToTPZq34dTbODxdXAJzMK_StGRrsgE4bjXn05W6VlVL-JDoWQ4I5Uwb5RDjUmoO44j0-lJbqfc5C0vdNwzpM0oAkegydSqR9A4QxcoctwElRngtODRDWOOjID5QnY1XPh7NTSi-IOEFZJlC9M3tJCjqJyXXacvk8nbVxyZJ_nd-sIdLqQkOW5HlATpYYNKW8jZOT-dw4UX52rtD7QFAUayQtdS5vGC06eXQEwxUfhFqDnbw5HYoLABMZW7zmCcr8KO3blExpWwbsuWwjVkrqVcrVLYNhorfXTqPy9z321O9tq8GboS9ZlECibnL0FL5-Fzrc_2j34t4YbfjtMDr35QnYT8mrAs-6mkboPzRP0vvteUMxaqenODV9vCzbvG5tjNOPYJzwkeP7zJUu8w_g2=s150-no&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;name&quot;&gt;Name&lt;/h4&gt;
+&lt;p&gt;Ji Junseop&lt;/p&gt;
+
+&lt;h4 id=&quot;school&quot;&gt;School&lt;/h4&gt;
+&lt;p&gt;School of Computing, KAIST&lt;/p&gt;
+
+&lt;h4 id=&quot;contacts&quot;&gt;Contacts&lt;/h4&gt;
+&lt;p&gt;E-mail: &lt;a href=&quot;mailto:gaon0403@gmail.com&quot;&gt;gaon0403@gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Twitter: &lt;a href=&quot;https://twitter.com/gaonnarae0403&quot;&gt;@gaonnarae0403&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br clear=&quot;left&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;대전의 한 공대에서 전산학을 공부하고 있는 순수한 학부생입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;사실 풋풋한 17세 여고생입니다.&lt;/strong&gt; 2015년에도 17세였지만 2016년에도 17세입니다.&lt;/p&gt;
+
+&lt;p&gt;해킹 흉내내고 있습니다. 흉내낸다고 쓴 이유는 배운다고 쓰기엔 너무 실력이 모자라서입니다.&lt;/p&gt;
+
+&lt;p&gt;어따끄일 수도 있습니다. 구경할 때 조심하세요.&lt;/p&gt;
+
+&lt;p&gt;일단 장장 하루의 삽질을 거쳐서 만든 블로그입니다. 영어공부 해야되는데 다 제끼고 만들었어요.&lt;/p&gt;
+
+&lt;p&gt;그러니까 이걸 어디에 쓰긴 써야 되는데… WriteUp(쓸 수 있기는 한가 모르겠지만)이나 리뷰 몇개나 올릴까 합니다.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>You're up and running!</title>
+   <link href="https://gaonnr.github.io/2014/03/03/Hello-World/"/>
+   <updated>2014-03-03T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2014/03/03/Hello-World</id>
+   <content type="html">&lt;p&gt;Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/config.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll Now repository&lt;/a&gt; on GitHub.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Introducing Lanyon</title>
+   <link href="https://gaonnr.github.io/2014/01/02/introducing-lanyon/"/>
+   <updated>2014-01-02T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2014/01/02/introducing-lanyon</id>
+   <content type="html">&lt;p&gt;Lanyon is an unassuming &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; theme that places content first by tucking away navigation in a hidden drawer. It’s based on &lt;a href=&quot;http://getpoole.com&quot;&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
+
+&lt;h3 id=&quot;built-on-poole&quot;&gt;Built on Poole&lt;/h3&gt;
+
+&lt;p&gt;Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by &lt;a href=&quot;https://twitter.com/mdo&quot;&gt;@mdo&lt;/a&gt;. Poole, and every theme built on it (like Lanyon here) includes the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Complete Jekyll setup included (layouts, config, &lt;a href=&quot;/404&quot;&gt;404&lt;/a&gt;, &lt;a href=&quot;/atom.xml&quot;&gt;RSS feed&lt;/a&gt;, posts, and &lt;a href=&quot;/about&quot;&gt;example page&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Mobile friendly design and development&lt;/li&gt;
+  &lt;li&gt;Easily scalable text and component sizing with &lt;code class=&quot;highlighter-rouge&quot;&gt;rem&lt;/code&gt; units in the CSS&lt;/li&gt;
+  &lt;li&gt;Support for a wide gamut of HTML elements&lt;/li&gt;
+  &lt;li&gt;Related posts (time-based, because Jekyll) below each post&lt;/li&gt;
+  &lt;li&gt;Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;lanyon-features&quot;&gt;Lanyon features&lt;/h3&gt;
+
+&lt;p&gt;In addition to the features of Poole, Lanyon adds the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Toggleable sliding sidebar (built with only CSS) via &lt;strong&gt;☰&lt;/strong&gt; link in top corner&lt;/li&gt;
+  &lt;li&gt;Sidebar includes support for textual modules and a dynamically generated navigation with active link support&lt;/li&gt;
+  &lt;li&gt;Two orientations for content and sidebar, default (left sidebar) and &lt;a href=&quot;https://github.com/poole/lanyon#reverse-layout&quot;&gt;reverse&lt;/a&gt; (right sidebar), available via &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;body&amp;gt;&lt;/code&gt; classes&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/poole/lanyon#themes&quot;&gt;Eight optional color schemes&lt;/a&gt;, available via &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;body&amp;gt;&lt;/code&gt; classes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/poole/lanyon#readme&quot;&gt;Head to the readme&lt;/a&gt; to learn more.&lt;/p&gt;
+
+&lt;h3 id=&quot;browser-support&quot;&gt;Browser support&lt;/h3&gt;
+
+&lt;p&gt;Lanyon is by preference a forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it is only compatible with Internet Explorer 9 and above.&lt;/p&gt;
+
+&lt;h3 id=&quot;download&quot;&gt;Download&lt;/h3&gt;
+
+&lt;p&gt;Lanyon is developed on and hosted with GitHub. Head to the &lt;a href=&quot;https://github.com/poole/lanyon&quot;&gt;GitHub repository&lt;/a&gt; for downloads, bug reports, and features requests.&lt;/p&gt;
+
+&lt;p&gt;Thanks!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Example content</title>
+   <link href="https://gaonnr.github.io/2014/01/01/example-content/"/>
+   <updated>2014-01-01T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2014/01/01/example-content</id>
+   <content type="html">&lt;div class=&quot;message&quot;&gt;
+  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+&lt;/div&gt;
+
+&lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Etiam porta &lt;strong&gt;sem malesuada magna&lt;/strong&gt; mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.&lt;/p&gt;
+
+&lt;h2 id=&quot;inline-html-elements&quot;&gt;Inline HTML elements&lt;/h2&gt;
+
+&lt;p&gt;HTML defines a long list of available inline tags, a complete list of which can be found on the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element&quot;&gt;Mozilla Developer Network&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;To bold text&lt;/strong&gt;, use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;To italicize text&lt;/em&gt;, use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;em&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Abbreviations, like &lt;abbr title=&quot;HyperText Markup Langage&quot;&gt;HTML&lt;/abbr&gt; should use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;, with an optional &lt;code class=&quot;highlighter-rouge&quot;&gt;title&lt;/code&gt; attribute for the full phrase.&lt;/li&gt;
+  &lt;li&gt;Citations, like &lt;cite&gt;— Mark otto&lt;/cite&gt;, should use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;del&gt;Deleted&lt;/del&gt; text should use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;del&amp;gt;&lt;/code&gt; and &lt;ins&gt;inserted&lt;/ins&gt; text should use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Superscript &lt;sup&gt;text&lt;/sup&gt; uses &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;sup&amp;gt;&lt;/code&gt; and subscript &lt;sub&gt;text&lt;/sub&gt; uses &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;sub&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Most of these elements are styled by browsers with few modifications on our part.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading&quot;&gt;Heading&lt;/h2&gt;
+
+&lt;p&gt;Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;p&gt;Cum sociis natoque penatibus et magnis dis &lt;code class=&quot;highlighter-rouge&quot;&gt;code element&lt;/code&gt; montes, nascetur ridiculus mus.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Example can be run directly in your JavaScript console
+&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Create a function that takes two arguments and returns the sum of those arguments
+&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;return a + b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Call the function
+&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &amp;gt; 8&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.&lt;/p&gt;
+
+&lt;h3 id=&quot;lists&quot;&gt;Lists&lt;/h3&gt;
+
+&lt;p&gt;Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Praesent commodo cursus magna, vel scelerisque nisl consectetur et.&lt;/li&gt;
+  &lt;li&gt;Donec id elit non mi porta gravida at eget metus.&lt;/li&gt;
+  &lt;li&gt;Nulla vitae elit libero, a pharetra augue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Vestibulum id ligula porta felis euismod semper.&lt;/li&gt;
+  &lt;li&gt;Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.&lt;/li&gt;
+  &lt;li&gt;Maecenas sed diam eget risus varius blandit sit amet non magna.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;HyperText Markup Language (HTML)&lt;/dt&gt;
+  &lt;dd&gt;The language used to describe and define the content of a Web page&lt;/dd&gt;
+
+  &lt;dt&gt;Cascading Style Sheets (CSS)&lt;/dt&gt;
+  &lt;dd&gt;Used to describe the appearance of Web content&lt;/dd&gt;
+
+  &lt;dt&gt;JavaScript (JS)&lt;/dt&gt;
+  &lt;dd&gt;The programming language used to build advanced Web sites and applications&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.&lt;/p&gt;
+
+&lt;h3 id=&quot;tables&quot;&gt;Tables&lt;/h3&gt;
+
+&lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Upvotes&lt;/th&gt;
+      &lt;th&gt;Downvotes&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Totals&lt;/td&gt;
+      &lt;td&gt;21&lt;/td&gt;
+      &lt;td&gt;23&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alice&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Bob&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Charlie&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Want to see something else added? &lt;a href=&quot;https://github.com/poole/poole/issues/new&quot;&gt;Open an issue.&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>What's Jekyll?</title>
+   <link href="https://gaonnr.github.io/2013/12/31/whats-jekyll/"/>
+   <updated>2013-12-31T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2013/12/31/whats-jekyll</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href=&quot;https://github.com/mojombo/jekyll/blob/master/README.markdown&quot;&gt;the project’s readme&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It’s an immensely useful tool and one we encourage you to use here with Lanyon.&lt;/p&gt;
+
+&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>
