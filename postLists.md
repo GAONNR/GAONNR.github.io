@@ -30,3 +30,4 @@ title: Post Lists
     <span class="pagination-item newer">Newer</span>
   {% endif %}
 </div>
+{% endif %}
