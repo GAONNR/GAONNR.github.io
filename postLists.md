@@ -4,7 +4,7 @@ title: Post Lists
 ---
 
 <ul class="posts">  
-	{% for post in paginator.posts limit:20 %}  
+	{% for post in paginator.posts}  
 	   <li>  
 		   <span>{{ post.date | date_to_string }}</span> &raquo;  
 		   <a href="{{ BASE_PATH }}{{ post.url }}">  
