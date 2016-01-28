@@ -1,6 +1,6 @@
 ---
 layout: another-page
-title: Post Lists
+title: Archive
 ---
 
 <div class="preview">
