@@ -43,7 +43,7 @@ body {
 }
 
 html {
-  font-family: "PT Serif", "KoPub Batang", Georgia, "Times New Roman", serif;
+  font-family: "KoPub Batang", "PT Serif", Georgia, "Times New Roman", serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -51,6 +51,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   color: #313131;
   letter-spacing: -.025rem;
+}
+
+.italics {
+  color: #9a9a9a;
+  font-size: 90%;
+  font-style: italic;
 }
 
 
