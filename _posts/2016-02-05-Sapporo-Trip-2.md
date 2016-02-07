@@ -67,7 +67,7 @@ title: 삿포로 여행 2일차 - 스스키노 역
 </p>
 <p align="CENTER">
   <img src="{{ site.baseurl }}/images/2016_02/05/IMG_20160205_133555.jpg" style="width: 480px;">
-  <img src="{{ site.baseurl }}/images/2016_02/05/IMG_20160205_133555.jpg" style="width: 480px;">
+  <img src="{{ site.baseurl }}/images/2016_02/05/IMG_20160205_134054.jpg" style="height: 480px;">
   <span class="italics">타블렛 체험 부스가 있길래 슬쩍 사용해봤다. 왜 다들 큰 타블렛을 사는지 실감했다.</span>
 </p>
 
