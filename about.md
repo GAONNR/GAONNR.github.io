@@ -3,29 +3,41 @@ layout: page
 title: About
 ---
 
-<img style="float: right;" src="https://lh3.googleusercontent.com/M43IvUf1EPiZld93KxkUq80GLz96ILWUEP_VAYLozp9bDZu9a6ifmbsV8EecJizz7lbycTWSbvuqH0mSjKgAiLeD-RhUAlEOewgdDOOL8f2Z4mbVa37nPUAUMKMddH9OXSetKAadmnj5OtWUq64tKgUOSRaW2XzRX-mypvihqwul0BNToTPZq34dTbODxdXAJzMK_StGRrsgE4bjXn05W6VlVL-JDoWQ4I5Uwb5RDjUmoO44j0-lJbqfc5C0vdNwzpM0oAkegydSqR9A4QxcoctwElRngtODRDWOOjID5QnY1XPh7NTSi-IOEFZJlC9M3tJCjqJyXXacvk8nbVxyZJ_nd-sIdLqQkOW5HlATpYYNKW8jZOT-dw4UX52rtD7QFAUayQtdS5vGC06eXQEwxUfhFqDnbw5HYoLABMZW7zmCcr8KO3blExpWwbsuWwjVkrqVcrVLYNhorfXTqPy9z321O9tq8GboS9ZlECibnL0FL5-Fzrc_2j34t4YbfjtMDr35QnYT8mrAs-6mkboPzRP0vvteUMxaqenODV9vCzbvG5tjNOPYJzwkeP7zJUu8w_g2=s150-no">
+<img style="float: right; width: 150px;" src="{{ site.baseurl }}/images/About_me.png">
 
-####Name
+#### Name
 Ji Junseop
 
-####School
+#### School
 School of Computing, KAIST
 
-####Contacts
+#### Contacts
 E-mail: <a href = "mailto:gaon0403@gmail.com">gaon0403@gmail.com</a>
 
-Twitter: <a href = "https://twitter.com/gaonnr0403">@gaonnarae0403</a>
+Twitter: <a href = "https://twitter.com/gaonnr0403">@gaonnr0403</a>
 
 <br clear = "left">
 
-대전의 한 공대에서 전산학을 공부하고 있는 순수한 학부생입니다.
+<span class="italics">(계정명인 GAON°NR은 가온나래라고 읽어 주세요.)</span>
 
-**사실 풋풋한 17세 여고생입니다.** 2015년에도 17세였지만 2016년에도 17세입니다.
+대전에 있는 K모 공대에서 전산학을 전공하고 있는 15학번 학부생입니다.  
+언제나 풋풋한 17세 여고생의 마음으로 살기 위해 노력하고 있습니다.  
+해킹 동아리에서 응원과 훼방을 담당하고 있습니다.  
+어따꾸지만, 조용히 덕질하기 위해 노력하고 있습니다. 나대는 것 같으면 핀잔 주세요.  
+블로그 관리를 자주 하지는 못합니다. 사실 시간은 많지만, 귀찮잖아요.  
+여행기, 덕질에 관한 포스트 가끔 올라옵니다. 나중에 실력이 되면, CTF 등 대회 Writeup이나 개발기 같은 것도 써서 올려볼 생각입니다.
 
-해킹 흉내내고 있습니다. 흉내낸다고 쓴 이유는 배운다고 쓰기엔 너무 실력이 모자라서입니다.
+___이 밑은 트위터 프로필을 보고 찾아오신 분들을 위한 안내입니다.___
 
-어따끄일 수도 있습니다. 구경할 때 조심하세요.
-
-일단 장장 하루의 삽질을 거쳐서 만든 블로그입니다. 영어공부 해야되는데 다 제끼고 만들었어요.
-
-그러니까 이걸 어디에 쓰긴 써야 되는데... WriteUp(쓸 수 있기는 한가 모르겠지만)이나 리뷰 몇개나 올릴까 합니다.
+헛소리를 많이 합니다.  
+한때 자제하려고 노력했었지만, 사람이 본성을 바꾸는 게 쉬운 일이 아닌 것 같네요.  
+덕질에 관련된 잡소리들도 많이 합니다.  
+트위터를 하시는 시점에서 여기에 거부감을 가지시는 분들이 많이 있을 거라고 생각되진 않지만, 그래도 혹시 모르니 양해해 주시면 좋겠습니다.  
+멘탈이 약해서 언팔이나 블락, 블언블 당하는 것에 상처를 많이 받습니다.  
+웬만하면 뮤트 정도로 끝내 주시면 좋겠어요.  
+정치적 문제 등, 논란의 소지가 있는 것들을 싫어합니다.  
+저도 이쪽 부분에 대한 트윗을 자제하려고 노력하고 있습니다.  
+관심받는 걸 좋아합니다.  
+다소 노골적으로 보일 수 있는 트윗도 자주 올라옵니다. 그럴 때는 관심을 보내주시면 상태가 양호해집니다.  
+팔로우해주시고 멘션을 대강 적어서 보내주시면 바로 맞팔해드립니다.  
+잘 부탁드려요.  
