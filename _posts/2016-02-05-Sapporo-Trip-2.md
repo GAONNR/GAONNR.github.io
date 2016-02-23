@@ -102,6 +102,6 @@ title: 삿포로 여행 2일차 - 스스키노 역
 
 <p align="CENTER">
   <img src="{{ site.baseurl }}/images/2016_02/05/IMG_20160205_201404.jpg" style="width: 480px;">
-  <img src="{{ site.baseurl }}/images/2016_02/05/IMG_20160205_173800.jpg" style="width: 480px;">
+  <img src="{{ site.baseurl }}/images/2016_02/05/IMG_20160205_201550.jpg" style="height: 480px;">
   <span class="italics">구매한 다가시들. 요즘 화제의 만화 '다가시카시'에서 소개된 바로 그 과자들이다.</span>
 </p>
