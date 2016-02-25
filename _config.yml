@@ -10,7 +10,7 @@ tagline:             'Blog'
 description:         'The blog about Hacking, Programming, Anime, etc.'
 url:                 https://gaonnr.github.io
 baseurl:             ''
-paginate:            5
+paginate:            3
 
 # About/contact
 author:
