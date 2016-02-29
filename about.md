@@ -5,9 +5,6 @@ title: About
 
 <img style="float: right; width: 150px;" src="{{ site.baseurl }}/images/About_me.png">
 
-#### Name
-Ji Junseop
-
 #### School
 School of Computing, KAIST
 

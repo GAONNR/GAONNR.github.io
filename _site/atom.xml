@@ -4,13 +4,31 @@
  <title>GAON°NR</title>
  <link href="https://gaonnr.github.io/atom.xml" rel="self"/>
  <link href="https://gaonnr.github.io/"/>
- <updated>2016-02-25T13:42:57+09:00</updated>
+ <updated>2016-02-26T14:17:50+09:00</updated>
  <id>https://gaonnr.github.io</id>
  <author>
    <name>Junseop Ji</name>
    <email>gaon0403@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>NAVER D2 캠퍼스 세미나 견학</title>
+   <link href="https://gaonnr.github.io/2016/02/26/naver-d2/"/>
+   <updated>2016-02-26T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2016/02/26/naver-d2</id>
+   <content type="html">&lt;p&gt;동아리로만 성장할 수 없다? 커뮤니티 필요.&lt;br /&gt;
+회피, 잘 돌아가는 케이스만.&lt;/p&gt;
+
+&lt;p&gt;오픈소스 분석&lt;br /&gt;
+하나하나 이해하려 할 필요 X&lt;br /&gt;
+다이어그램 좋음 - if/else는 너무 상세히 말고&lt;br /&gt;
+개발과정 역추적 - commit기록 역추적&lt;br /&gt;
+디버깅 - Sentry&lt;br /&gt;
+진로 - 눈 앞의 기술보다는 졸업 후를 생각해서. 기초지식.
+Python Korea, pyjog, openstack&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>삿포로 여행 3일차 - 유키미쿠와 삿포로 팩토리, 삿포로 구도청사와 시계탑, 라면 거리, 스스키노 아이스 월드, 그리고 TV타워</title>
