@@ -34,7 +34,8 @@
  * Update the foundational and global aspects of the page.
  */
 
-@import url(http://fonts.googleapis.com/earlyaccess/kopubbatang.css);
+/* @import url(http://fonts.googleapis.com/earlyaccess/kopubbatang.css); */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 /* Prevent scroll on narrow devices */
 html,
@@ -43,11 +44,16 @@ body {
 }
 
 html {
+  /*
   font-family: "KoPub Batang", "PT Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  */
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 100;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans KR', "PT Sans", Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: #313131;
   letter-spacing: -.025rem;
@@ -324,7 +330,7 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title,
 .post-title a {
-  color: #01579b;
+  color: #3399ff;
 }
 .page-title,
 .post-title {
@@ -578,25 +584,17 @@ a.pagination-item:hover {
 .theme-base-10 .sidebar,
 .theme-base-10 .sidebar-toggle:active,
 .theme-base-10 #sidebar-checkbox:checked ~ .sidebar-toggle {
-  background-color: #01579b;
+  background-color: #2196f3;
 }
 .theme-base-10 .container a,
 .theme-base-10 .sidebar-toggle,
 .theme-base-10 .related-posts li a:hover {
-  color: #01579b;
+  color: #2196f3;
 }
-
-
-/* Custom Theme - iOS Blue */
-.theme-base-11 .sidebar,
-.theme-base-11 .sidebar-toggle:active,
-.theme-base-11 #sidebar-checkbox:checked ~ .sidebar-toggle {
-  background-color: #007aff;
-}
-.theme-base-11 .container a,
-.theme-base-11 .sidebar-toggle,
-.theme-base-11 .related-posts li a:hover {
-  color: #007aff;
+.theme-base-10 .page-title,
+.theme-base-10 .post-title,
+.theme-base-10 .post-title a {
+  color: #2196f3;
 }
 
 /*

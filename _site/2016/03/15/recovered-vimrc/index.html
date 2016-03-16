@@ -11,7 +11,7 @@
 
   <title>
     
-      웹폰트 날렸습니다. &middot; GAON°NR
+      vimrc 설정하기 - 기본 설정 및 Plugin &middot; GAON°NR
     
   </title>
 
@@ -143,34 +143,86 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">웹폰트 날렸습니다.</h1>
-  <span class="post-date">03 Jan 2016</span>
-  <p>원래는 Spoqa Han Sans KR/JP가 적용되어 있었는데요…
-긱사에서 테스트해볼 때는 별로 문제점을 못 느꼈는데</p>
+  <h1 class="post-title">vimrc 설정하기 - 기본 설정 및 Plugin</h1>
+  <span class="post-date">15 Mar 2016</span>
+  <p>동아리에서 새로 판 서버에다 지금까지 로컬에서 썼던 <code class="highlighter-rouge">.vimrc</code>파일을 옮기려다가 mv대신 rm을 써서 날려먹었다.</p>
 
-<p align="left">
-  <img src="https://lh3.googleusercontent.com/182zoTTFxbNJK3L8mCDQjR8xS5um_Y2AyMy6h8VDUG2ECNCXz4O82Dos28WYLENfu-YL0XRcgiml3RFz5hC140RtWcgelQ9BMn-5N1qTaZnWZ-UmX_7F0hWw4303_af_eRojc-qPjX1tJOiH4SR_KlINqqSqVV6XlynG2R1L5anZhEm9dZ-T11R2tZ3GZHVyx-w5eHTfdRdXdOxS2GW98TIk0VHnTgVVZ8lKwN6qT_x0H1Eq1gUFtzblJijVdahw1N-Pue0zZRf-pUq6XDFDz-Dj7VHuytfZKk8izpE93OMXIDnBShUspd5zlNo69nLwuWoUGcQNKIePGZ8aMUd4RNIow3o0hTA6jaHgYtxzsyB7YhLvQXLGCKcu9GlzuwLdViIT6Tkviqy7O-zVcevxQYb5DfhcaLg76zNk9wcjMo83K9-kzEcxpLtbJetdDzxlK3HT1C5VhcIX1hUQYnGSwjlAWfxXUgG64zpc-XNM1bExPDNWmZB6g1_z0ydOI9wD76Wlo33nvj8Y0O8jbRYdryOgYFTMS801L1cSOPU7DDE0oOVauRC9KxxnShJoCNdTbQBJ=w596-h101-no" />
-</p>
-<p>위 사진과 같이 웹폰트 덕분에 로딩이 무지막지하게 느려진다는 제보를 받아서 그냥 날리기로 했습니다 ㅠ</p>
+<p>어디 백업해 놓은 것도 없었기 때문에 어쩔 수 없이 새로 작성하는 겸, 내가 사용하는 설정을 정리해서 올리기로 했다.</p>
 
-<p>여러분 웹브라우저 이쁜폰트 기본으로 설정하시고 쓰세요</p>
+<p><em>이 글은 OS X (El Capitan) 기준으로 작성되었습니다.</em></p>
 
-<p>(아니면 맥 쓰던가)</p>
+<!--
+    set hlsearch " 검색어 하이라이팅
+    set nu " 줄번호
+    set autoindent " 자동 들여쓰기
+    set scrolloff=2
+    set wildmode=longest,list
+    set ts=4 "tag select
+    set sts=4 "st select
+    set sw=1 " 스크롤바 너비
+    set autowrite " 다른 파일로 넘어갈 때 자동 저장
+    set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
+    set cindent " C언어 자동 들여쓰기
+    set bs=eol,start,indent
+    set history=256
+    set laststatus=2 " 상태바 표시 항상
+    "set paste " 붙여넣기 계단현상 없애기
+    set shiftwidth=4 " 자동 들여쓰기 너비 설정
+    set showmatch " 일치하는 괄호 하이라이팅
+    set smartcase " 검색시 대소문자 구별
+    set smarttab
+    set smartindent
+    set softtabstop=4
+    set tabstop=4
+    set ruler " 현재 커서 위치 표시
+    set incsearch
+    set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
+    " 마지막으로 수정된 곳에 커서를 위치함
+    au BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \ exe "norm g`\"" |
+    \ endif
+    " 파일 인코딩을 한국어로
+    if $LANG[0]=='k' && $LANG[1]=='o'
+      set fileencoding=korea
+    endif
+    " 구문 강조 사용
+    if has("syntax")
+      syntax on
+    endif
+    " 컬러 스킴 사용
+    colorscheme Tomorrow-Night
+-->
+
+<p>vim의 colorscheme은 <a href="https://github.com/lysyi3m/osx-terminal-themes">이곳</a>에서 다운받을 수 있다. OS X 기준으로, README에서 좋아보이는 테마를 선택하고, schemes폴더에서 다운받은 뒤 더블클릭하면 된다. 이후, root폴더에서 <code class="highlighter-rouge">.vim/colors</code> 폴더를 복사하여 옮기면 linux서버에서도 colorscheme을 그대로 사용할 수 있다.</p>
+
+<p>이후에는 vim을 다른 화려한 IDE나 Text Editor 못지않게 만들어 줄 수 있는 여러 플러그인을 설치할 수 있다.
+vim의 플러그인은 Vundle을 통해 관리된다. 터미널에 다음의 코드를 입력해서 Vundle을 설치하자.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+</code></pre>
+</div>
+
+<p>OS X 유저이고, XCode를 설치한 상태라면 git이 설치되어 있을 것이다. 만약 git이 설치되어 있지 않다고 뜨면 앱스토어에서 XCode를 설치해주자.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+  Plugin 'gmarik/Vundle.vim' "required
+  Plugin 'tpope/vim-fugitive' "required
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'AutoComplPop'
+call vundle#end()            
+filetype plugin indent on " Put your non-Plugin stuff after this line
+</code></pre>
+</div>
 
 </div>
 
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/2016/03/15/setting-vimrc/">
-            vimrc 설정하기 - 기본 설정 및 Plugin
-            <small>15 Mar 2016</small>
-          </a>
-        </h3>
-      </li>
     
       <li>
         <h3>
@@ -190,6 +242,15 @@
         </h3>
       </li>
     
+      <li>
+        <h3>
+          <a href="/2016/02/04/Sapporo-Trip-1/">
+            삿포로 여행 1일차 - 신 치토세 공항, 유키미쿠 스카이타운
+            <small>04 Feb 2016</small>
+          </a>
+        </h3>
+      </li>
+    
   </ul>
 </div>
 
@@ -199,7 +260,7 @@
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = 'gaonnr'; // required: replace example with your forum shortname
-  var disqus_identifier = "/2016/01/03/deleted-webfonts/";
+  var disqus_identifier = "/2016/03/15/recovered-vimrc/";
 
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
