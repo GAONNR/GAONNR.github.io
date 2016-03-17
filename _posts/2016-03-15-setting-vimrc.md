@@ -57,7 +57,7 @@ title: vimrc 설정하기 - 기본 설정 및 Plugin
 
 <p class = "italics" align = "CENTER">위 세팅들은 구글 검색을 통해 <a href="https://medium.com/sunhyoups-story/vim-%EC%97%90%EB%94%94%ED%84%B0-%EC%9D%B4%EC%81%98%EA%B2%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-5b6b8d546017#.sg39ixinw">이선협 님의 블로그</a>에서 가져온 것입니다.</p>
 
-vim의 colorscheme은 [이곳](https://github.com/lysyi3m/osx-terminal-themes)에서 다운받을 수 있다. OS X 기준으로, README에서 좋아보이는 테마를 선택하고, schemes폴더에서 다운받은 뒤 더블클릭하면 된다. 이후, root폴더에서 `.vim/colors` 폴더를 복사하여 옮기면 linux서버에서도 colorscheme을 그대로 사용할 수 있다.
+vim의 colorscheme은 구글링하여 다운받을 수 있다. 좋아 보이는 테마를 내려받아 root의 `.vim/colors`폴더에 집어넣은 이후 설정하면 된다, 이 폴더를 복사하여 옮기면 linux서버에서도 colorscheme을 그대로 사용할 수 있다.
 
 이후에는 vim을 다른 화려한 IDE나 Text Editor 못지않게 만들어 줄 수 있는 여러 플러그인을 설치할 수 있다.
 vim의 플러그인은 Vundle을 통해 관리된다. 터미널에 다음의 코드를 입력해서 Vundle을 설치하자.
