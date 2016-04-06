@@ -47,7 +47,7 @@
 		<a href="https://facebook.com/gaon0403" target="_blank">
 			<i class="svg-icon svg-icon-facebook"></i>
 		</a>
-		<a href="https://twitter.com/gaonnr0403" target="_blank">
+		<a href="https://twitter.com/_gaonnr_" target="_blank">
 			<i class="svg-icon svg-icon-twitter"></i>
 		</a>
   </div>
@@ -106,6 +106,22 @@
       
         
         
+      
+    
+      
+        
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
           <a class="sidebar-nav-item" href="/postLists/">Archive</a>
         
       
@@ -146,23 +162,35 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/hacking/2016/03/26/format-string-bug/">
-        포맷 스트링 버그 정리
+      <a href="/2016/03/26/format-string-bug/">
+        Format String Bug
       </a>
     </h1>
 
     <span class="post-date">26 Mar 2016</span>
 
-    <p>포맷 스트링 버그(Format String Bug, FSB)는 동아리에서 밥값을 하기 위해선 필수인 기법임에도 불구하고, 매번 할 때마다 까먹고 헷갈려서, 확실한 기억을 위해 여기에 정리해서 올리기로 하였다.</p>
+    <!--
+---
+layout: post
+title: 포맷 스트링 버그 정리
+category: hacking
+---
 
-<p>우선 포맷 스트링이란 무엇인가에 대해 알아볼 필요가 있다. C언어를 다뤄 본 사람이라면, 다음과 같은 코드들을 많이 써 봤을 것이다.</p>
+포맷 스트링 버그(Format String Bug, FSB)는 동아리에서 밥값을 하기 위해선 필수인 기법임에도 불구하고, 매번 할 때마다 까먹고 헷갈려서, 확실한 기억을 위해 여기에 정리해서 올리기로 하였다.
 
-<div class="highlighter-rouge"><pre class="highlight"><code>printf("%d", num);
-printf("%s", str);
-</code></pre>
-</div>
+우선 포맷 스트링이란 무엇인가에 대해 알아볼 필요가 있다. C언어를 다뤄 본 사람이라면, 다음과 같은 코드들을 많이 써 봤을 것이다.
 
-<p>여기서, <code class="highlighter-rouge">%d</code>나 <code class="highlighter-rouge">%s</code>같은 인자들을 포맷 스트링이라고 부른다.</p>
+    printf("%d", num);
+    printf("%s", str);
+
+여기서, `%d`나 `%s`같은 인자들을 포맷 스트링이라고 부른다.
+
+/home/fsb
+
+vim fsb.c
+
+gdb fsb -> print &changethis
+-->
 
   </div>
   
@@ -274,7 +302,7 @@ filetype plugin indent on " Put your non-Plugin stuff after this line
 
 <p>이때 NERDTree의 경우 vim을 실행할 때마다 :NERDTree를 입력하거나 단축키를 눌러 줘야 실행되는 번거로움이 있는데, vim의 function과 autocmd 기능을 이용해 vim을 실행하면 NERDTree가 자동으로 켜지게끔 만들 수 있다.</p>
 
-<p>vimrc에 다음과 같은 코드를 입력하자.</p>
+<p>vimrc에 다음과 같은 코드를 입력하자.vim a</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>function! StartUp()
   NERDTree
