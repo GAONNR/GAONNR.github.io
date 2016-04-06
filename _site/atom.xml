@@ -4,13 +4,31 @@
  <title>GAON°NR</title>
  <link href="https://gaonnr.github.io/atom.xml" rel="self"/>
  <link href="https://gaonnr.github.io/"/>
- <updated>2016-03-18T10:36:29+09:00</updated>
+ <updated>2016-03-29T10:29:18+09:00</updated>
  <id>https://gaonnr.github.io</id>
  <author>
    <name>Junseop Ji</name>
    <email>gaon0403@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>포맷 스트링 버그 정리</title>
+   <link href="https://gaonnr.github.io/hacking/2016/03/26/format-string-bug/"/>
+   <updated>2016-03-26T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/hacking/2016/03/26/format-string-bug</id>
+   <content type="html">&lt;p&gt;포맷 스트링 버그(Format String Bug, FSB)는 동아리에서 밥값을 하기 위해선 필수인 기법임에도 불구하고, 매번 할 때마다 까먹고 헷갈려서, 확실한 기억을 위해 여기에 정리해서 올리기로 하였다.&lt;/p&gt;
+
+&lt;p&gt;우선 포맷 스트링이란 무엇인가에 대해 알아볼 필요가 있다. C언어를 다뤄 본 사람이라면, 다음과 같은 코드들을 많이 써 봤을 것이다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;printf(&quot;%d&quot;, num);
+printf(&quot;%s&quot;, str);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;여기서, &lt;code class=&quot;highlighter-rouge&quot;&gt;%d&lt;/code&gt;나 &lt;code class=&quot;highlighter-rouge&quot;&gt;%s&lt;/code&gt;같은 인자들을 포맷 스트링이라고 부른다.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>vimrc 설정하기 - 기본 설정 및 Plugin</title>

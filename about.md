@@ -11,7 +11,7 @@ School of Computing, KAIST
 #### Contacts
 E-mail: <a href = "mailto:gaon0403@gmail.com">gaon0403@gmail.com</a>
 
-Twitter: <a href = "https://twitter.com/gaonnr0403">@gaonnr0403</a>
+Twitter: <a href = "https://twitter.com/_gaonnr_">@gaonnr0403</a>
 
 <br clear = "left">
 

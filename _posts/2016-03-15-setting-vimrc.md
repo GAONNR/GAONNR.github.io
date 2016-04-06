@@ -94,7 +94,7 @@ OS X 유저이고, XCode를 설치한 상태라면 git이 설치되어 있을 �
 
 이때 NERDTree의 경우 vim을 실행할 때마다 :NERDTree를 입력하거나 단축키를 눌러 줘야 실행되는 번거로움이 있는데, vim의 function과 autocmd 기능을 이용해 vim을 실행하면 NERDTree가 자동으로 켜지게끔 만들 수 있다.
 
-vimrc에 다음과 같은 코드를 입력하자.
+vimrc에 다음과 같은 코드를 입력하자.vim a
 
     function! StartUp()
       NERDTree
