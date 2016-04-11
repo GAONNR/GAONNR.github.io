@@ -1,0 +1,15 @@
+---
+title: 그의 집
+subtitle: 집 두채였는데 하나 팔았음 ㅠㅠ
+layout: default
+modal-id: 3
+date: 2016-04-06
+img: his_house.png
+thumbnail: his_house-thumb.png
+alt: image-alt
+project-date: April 2016
+client: Admin
+category: 그의 재산
+description: 우매한 중생 중 하나가 혹시 집도 두채 이상이온지 하고 여쭤보자 '실제로 두 채였다'라고 답변하시는 모습입니다. 실로 놀라운 기적의 재현입니다.
+
+---

@@ -1,0 +1,14 @@
+---
+title: 그의 질문
+subtitle: 야, 10분위면 어느 정도냐?
+layout: default
+modal-id: 1
+date: 2016-04-06
+img: his_question.png
+thumbnail: his_question-thumb.png
+alt: image-alt
+project-date: April 2016
+client: Admin
+category: His Wealth
+description: 반인반금(半人半金)의 정경환께서 자신이 금수저임을 처음 확인하시게 되는 역사적인 순간의 발단입니다.
+---

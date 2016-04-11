@@ -1,0 +1,15 @@
+---
+title: 그의 착각
+subtitle: 1이 높은 거 아니었냐?
+layout: default
+modal-id: 2
+date: 2014-07-17
+img: his_misunderstand.png
+thumbnail: his_misunderstand-thumb.png
+alt: image-alt
+project-date: April 2016
+client: Admin
+category: 그의 순수함
+description: 반인반금의 정경환께서는 10분위라는 글을 보고서도 자신의 소득이 상위 계층에 속함을 짐작하지 못하셨습니다. 실로 순수함의 극치라 볼 수 있습니다.
+
+---
