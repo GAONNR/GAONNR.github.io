@@ -293,9 +293,9 @@ header .intro-text {
 
 header .intro-text .intro-lead-in {
     margin-bottom: 25px;
-    font-family: "KoPub Batang","Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "KoPub Batang","Droid Serif","Helvetica Neue",Helvetica,Arial,serif;
     font-size: 22px;
-    /* font-style: italic; */
+    font-style: italic;
     line-height: 22px;
 }
 
@@ -304,7 +304,7 @@ header .intro-text .intro-heading {
     text-transform: uppercase;
     font-family: "Noto Sans KR",Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 50px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 50px;
 }
 
