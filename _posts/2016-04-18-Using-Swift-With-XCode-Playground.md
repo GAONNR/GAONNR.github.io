@@ -80,7 +80,7 @@ for i in 1..<10 {
 터미널을 열어서 swift를 입력했더니 다음과 같은 에러 메시지가 표시되었다.
 
 <p align="CENTER">
-  <img src="{{ site.baseurl }}images/Learning-Swift/Error_Msg.png" style="width: 640px">
+  <img src="{{ site.baseurl }}/images/Learning-Swift/Error_Msg.png" style="width: 640px">
   <span class="italics">module six가 없다는 에러 메시지가 표시된다.</span>
 </p>
 
@@ -89,7 +89,7 @@ for i in 1..<10 {
 이후 다시 swift를 터미널에 입력하면 다음과 같이 swift가 실행된다.
 
 <p align="CENTER">
-  <img src="{{ site.baseurl }}images/Learning-Swift/Launched_Swift.png" style="width: 640px">
+  <img src="{{ site.baseurl }}/images/Learning-Swift/Launched_Swift.png" style="width: 640px">
   <span class="italics">Swift가 정상적으로 실행된 모습.</span>
 </p>
 
@@ -112,6 +112,6 @@ print("Your name is \(name!)")
 이를 저장한 후, `swift SwiftTest.swift`를 입력하면 코드가 실행된다.
 
 <p align="CENTER">
-  <img src="{{ site.baseurl }}images/Learning-Swift/Result.png" style="width: 640px">
+  <img src="{{ site.baseurl }}/images/Learning-Swift/Result.png" style="width: 640px">
   <span class="italics">입력한 String이 정상적으로 출력되는 것을 확인할 수 있다.</span>
 </p>
