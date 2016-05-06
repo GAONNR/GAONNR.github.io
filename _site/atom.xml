@@ -4,7 +4,7 @@
  <title>GAON°NR</title>
  <link href="https://gaonnr.github.io/atom.xml" rel="self"/>
  <link href="https://gaonnr.github.io/"/>
- <updated>2016-04-18T16:57:52+09:00</updated>
+ <updated>2016-05-06T19:40:39+09:00</updated>
  <id>https://gaonnr.github.io</id>
  <author>
    <name>Junseop Ji</name>
@@ -13,16 +13,86 @@
 
  
  <entry>
-   <title>XCode의 playground를 이용하여 Swift 학습하기, 터미널(terminal)을 통해 swift 코드 실행시키기</title>
+   <title>OS X에서 NTFS 사용하기 - OSXfuse, ntfs-3g</title>
+   <link href="https://gaonnr.github.io/2016/05/06/Using-NTFS-On-OSX/"/>
+   <updated>2016-05-06T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/2016/05/06/Using-NTFS-On-OSX</id>
+   <content type="html">&lt;p&gt;OS X는 공식적으로 NTFS를 지원하지 않는다. 그러나 시중에 나와있는 외장
+하드디스크들은 대부분 NTFS 포맷이므로, 대용량 자료들을 복사하기 위해서는 NTFS
+지원이 필요한 것이 사실이다. 본인은 최근까지
+&lt;a href=&quot;http://enjoygineering.com/mounty/&quot;&gt;Mounty&lt;/a&gt;라는 3rd-party 프로그램을 사용하고
+있었으나, 매번 하드디스크를 연결할 때마다 Notification Popup이 떠서 번거롭기도
+했고, 몇 번 하드디스크에 에러를 발생시키기도 해서 다른 프로그램을 찾던 도중,
+OSXfuse와 ntfs-3g를 사용하여 NTFS로 디스크를 자동으로 mount하는 법을 발견하여
+시도해 보기로 했다. 비록 초기 설정은 Mounty에 비해 번거롭고, Command Line을
+사용하여 복잡해 보일 수도 있지만, 설정만 끝내면 그 이후론 별로 신경을 쓰지
+않아도 되어서 깔끔하니 좋은 것 같다.&lt;/p&gt;
+
+&lt;p&gt;먼저 homebrew가 깔려 있다는 가정 하에 설명을 진행하겠다. 만약 homebrew가
+깔려있지 않다면, 적절한 검색을 통해 찾아보길 권한다.&lt;/p&gt;
+
+&lt;p&gt;우선 다음 링크에서 &lt;a href=&quot;https://github.com/osxfuse/osxfuse/releases&quot;&gt;OSXfuse&lt;/a&gt;를
+다운로드 받아 설치하자.&lt;/p&gt;
+
+&lt;p align=&quot;CENTER&quot;&gt;
+    &lt;img src=&quot;/images/Using_NTFS_on_OSX/01.png&quot; style=&quot;width:
+    640px;&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;링크를 타고 들어가서, 조금 스크롤을 내리면 보이는 Downloads 항목에서
+osxfuse-3.2.0.dmg 파일을 다운로드 받아 설치하면 된다.&lt;/p&gt;
+
+&lt;p&gt;이후 터미널을 켜고 다음과 같은 명령어를 입력하여 homebrew를 설치하자.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+brew install homebrew/fuse/ntfs-3g
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;설치가 끝나면, 외장 하드디스크가 연결되었을 때 자동으로 mount하도록 설정을
+해줘야 하는데, El Capitan 이후로는 시스템의 일부 영역이 Root라고 할지라도 수정을
+할 수 없게 막혀 있다. 따라서 &lt;a href=&quot;http://macnews.tistory.com/3408&quot;&gt;이 포스트&lt;/a&gt;를
+참고하여 Rootless를 해제하자. 부팅할 때 Cmd + R을 꾹 누르고 있으면 Recovery
+모드로 진입하며, 상단의 메뉴 막대에서 유틸리티 - 터미널을 선택하고, 다음
+명령어를 입력한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+csrutil disable --without debug
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 Rootless의 해제가 완료되었다. 다시 정상적으로 부팅한 후 터미널을 켜서
+다음의 두 줄을 입력하자.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
+sudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;이후 컴퓨터를 재부팅한 후 외장 하드디스크를 연결해 보면, 자동으로 NTFS로
+mount되어 쓰기가 가능해진 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p align=&quot;CENTER&quot;&gt;
+    &lt;img src=&quot;/images/Using_NTFS_on_OSX/02.png&quot; style=&quot;width:
+    640px;&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p class=&quot;italics&quot; align=&quot;CENTER&quot;&gt;
+이 포스트의 내용은 &lt;a href=&quot;http://www.howtogeek.com/236055/how-to-write-to-ntfs-drives-on-a-mac/&quot;&gt;이
+링크&lt;/a&gt;에서 일부를 참고하여 작성되었습니다.
+&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>XCode의 playground를 이용하여 Swift 학습하기, 터미널(terminal)을 통해 Swift 코드 실행시키기</title>
    <link href="https://gaonnr.github.io/2016/04/18/Using-Swift-With-XCode-Playground/"/>
    <updated>2016-04-18T00:00:00+09:00</updated>
    <id>https://gaonnr.github.io/2016/04/18/Using-Swift-With-XCode-Playground</id>
    <content type="html">&lt;p&gt;&lt;span class=&quot;italics&quot;&gt; 이 글은 OS X, El Capitan, Swift 2.2 환경에서 작성되었습니다.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;최근 동아리가 출전한 pCTF 2016에서 Swift언어로 된 문제가 출제되었다.&lt;br /&gt;
-아무래도 최근 구글이 Go는 서버 개발 위주로 활용하고 안드로이드 등에 Swift를 활용하는 것을 고려중이라는 소문이 돈 것이 반영된 듯 하다.&lt;br /&gt;
-Go 배우기도 바빴던 동아리원들에게 갑자기 Swift로 태세전환이라니 허탈감이 들지 않을 수가 없다.&lt;br /&gt;
-그래도 Swift는 애플에서 하도 홍보를 해서 흥미가 있었던 언어이기도 했고, 마침 또 중간고사 시험기간이라서 갑자기 Swift에 대한 호기심이 차올라 배워보기로 했다.&lt;/p&gt;
+아무래도 최근 구글에서 Go는 서버 개발 위주로 활용하고, 안드로이드 등에 Swift를 활용하는 것을 고려중이라는 소문이 반영된 듯 하다.&lt;br /&gt;
+Go 배우기도 바빴던 동아리원들인데, 갑자기 Swift로 태세전환이라니 허탈감이 들지 않을 수가 없다.&lt;br /&gt;
+그래도 Swift는 애플에서 하도 홍보를 해와서 흥미가 있었던 언어이기도 했고, 마침 또 중간고사 시험기간의 버프로 인해 Swift에 대한 호기심이 차올라 대강 배워보기로 했다.&lt;/p&gt;
 
 &lt;p&gt;Swift가 최근에 Open-Source로 공개되긴 했지만, 역시 애플에서 만든 언어인 만큼 XCode에서 제대로 쓸 수 있을 것이다.
 XCode를 실행하면 다음과 같은 화면이 나온다.&lt;/p&gt;
@@ -72,10 +142,11 @@ print(&quot;Hello, World!&quot;)
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swift
 for i in 1..&amp;lt;10 {
+  //Source
 }
 &lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;python의 &lt;code class=&quot;highlighter-rouge&quot;&gt;for i in range(1, 10)&lt;/code&gt;과 같은 기능을 실행한다. 개인적으로는 저 ..&amp;lt; 기호가 맘에 들지 않지만, 쓰다 보면 익숙해져서 못 느낄지도 모른다.&lt;/p&gt;
+&lt;p&gt;python의 &lt;code class=&quot;highlighter-rouge&quot;&gt;for i in range(1, 10)&lt;/code&gt;과 같은 기능을 실행한다. 개인적으로는 저 ..&amp;lt; 기호가 맘에 들지 않지만, 문법이므로 익숙해지려고 노력하고 있다.&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;print()&lt;/code&gt; 함수와 &lt;code class=&quot;highlighter-rouge&quot;&gt;for&lt;/code&gt;문을 적당히 사용하여 구구단을 출력하는 코드를 작성해 보았다.&lt;/p&gt;
 
@@ -93,7 +164,7 @@ for i in 1..&amp;lt;10 {
 &lt;p&gt;터미널을 열어서 swift를 입력했더니 다음과 같은 에러 메시지가 표시되었다.&lt;/p&gt;
 
 &lt;p align=&quot;CENTER&quot;&gt;
-  &lt;img src=&quot;images/Learning-Swift/Error_Msg.png&quot; style=&quot;width: 640px&quot; /&gt;
+  &lt;img src=&quot;/images/Learning-Swift/Error_Msg.png&quot; style=&quot;width: 640px&quot; /&gt;
   &lt;span class=&quot;italics&quot;&gt;module six가 없다는 에러 메시지가 표시된다.&lt;/span&gt;
 &lt;/p&gt;
 
@@ -102,7 +173,7 @@ for i in 1..&amp;lt;10 {
 &lt;p&gt;이후 다시 swift를 터미널에 입력하면 다음과 같이 swift가 실행된다.&lt;/p&gt;
 
 &lt;p align=&quot;CENTER&quot;&gt;
-  &lt;img src=&quot;images/Learning-Swift/Launched_Swift.png&quot; style=&quot;width: 640px&quot; /&gt;
+  &lt;img src=&quot;/images/Learning-Swift/Launched_Swift.png&quot; style=&quot;width: 640px&quot; /&gt;
   &lt;span class=&quot;italics&quot;&gt;Swift가 정상적으로 실행된 모습.&lt;/span&gt;
 &lt;/p&gt;
 
@@ -125,7 +196,7 @@ print(&quot;Your name is \(name!)&quot;)
 이를 저장한 후, &lt;code class=&quot;highlighter-rouge&quot;&gt;swift SwiftTest.swift&lt;/code&gt;를 입력하면 코드가 실행된다.&lt;/p&gt;
 
 &lt;p align=&quot;CENTER&quot;&gt;
-  &lt;img src=&quot;images/Learning-Swift/Result.png&quot; style=&quot;width: 640px&quot; /&gt;
+  &lt;img src=&quot;/images/Learning-Swift/Result.png&quot; style=&quot;width: 640px&quot; /&gt;
   &lt;span class=&quot;italics&quot;&gt;입력한 String이 정상적으로 출력되는 것을 확인할 수 있다.&lt;/span&gt;
 &lt;/p&gt;
 </content>
