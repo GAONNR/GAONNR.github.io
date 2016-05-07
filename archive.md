@@ -1,10 +1,10 @@
 ---
-layout: another-page
+layout: page
 title: Archive
 ---
 
 <div class="preview">
-  <h1 class="preview">Archive</h1>
+  <!--<h1 class="preview">Archive</h1>-->
   <ul class="preview-posts">
   {% for category in site.categories %}
     <li>
