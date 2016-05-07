@@ -8,28 +8,11 @@ category: Setting
 
 기본적으로 [이곳](http://stackoverflow.com/questions/20872861/jekyll-display-posts-by-category)의 YAML 코드를 참고하여 작성하였다.
 
-작성된 결과물은 오른쪽 상단의 햄버거 메뉴를 누르면 나오는 Archives 페이지에 반영되었으며, 코드는 다음과 같다.
+작성된 결과물은 오른쪽 상단의 햄버거 메뉴를 누르면 나오는 Archives 페이지에 반영되었으며, 코드는 다음과 같다. ([Github - gaonnr.github.io](https://github.com/GAONNR/GAONNR.github.io)의 archive.md에서 텍스트로 볼 수 있다)  
 
-```YAML
-<div class="preview">
-  <h1 class="preview">Archive</h1>
-  <ul class="preview-posts">
-  {% for category in site.categories %}
-    <li>
-    <h3><b name="{{ category | first }}">{{ category | first }}<categoryfont>   : Category</categoryfont></b>
-        {% for posts in category %}
-          {% for post in posts %}
-              {% if post.url %}
-                  <h4><li><a href="{{ post.url }}">{{ post.title }} <small>{{ post.date | date_to_string }}</small></a></li></h4>
-              {% endif %}
-          {% endfor %}
-        {% endfor %}
-    </h3>
-    </li>
-  {% endfor %}
-  </ul>
-</div>
-```
+<p align="CENTER">
+  <img src="{{ site.baseurl }}/images/CategorySource.png" style="width: 640px;">
+</p>
 
-원리는 대강 이해할 수 있었지만, CSS를 아직 감을 잡지 못해서, 야매로 이것저것 바꿔보면서 스타일을 적용하느라 애먹었다.  
+코드의 원리는 대강 이해할 수 있었지만, CSS를 아직 감을 잡지 못해서, 야매로 이것저것 바꿔보면서 스타일을 적용하느라 애먹었다.  
 아직도 썩 맘에 드는 디자인을 만들진 못했지만, 이 정도로 만족하고 좀 더 생산적인 일을 해야겠다.

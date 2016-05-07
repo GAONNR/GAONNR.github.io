@@ -4,7 +4,7 @@
  <title>GAON°NR</title>
  <link href="https://gaonnr.github.io/atom.xml" rel="self"/>
  <link href="https://gaonnr.github.io/"/>
- <updated>2016-05-07T22:36:10+09:00</updated>
+ <updated>2016-05-07T22:42:48+09:00</updated>
  <id>https://gaonnr.github.io</id>
  <author>
    <name>Junseop Ji</name>
@@ -21,170 +21,13 @@
 
 &lt;p&gt;기본적으로 &lt;a href=&quot;http://stackoverflow.com/questions/20872861/jekyll-display-posts-by-category&quot;&gt;이곳&lt;/a&gt;의 YAML 코드를 참고하여 작성하였다.&lt;/p&gt;
 
-&lt;p&gt;작성된 결과물은 오른쪽 상단의 햄버거 메뉴를 누르면 나오는 Archives 페이지에 반영되었으며, 코드는 다음과 같다.&lt;/p&gt;
+&lt;p&gt;작성된 결과물은 오른쪽 상단의 햄버거 메뉴를 누르면 나오는 Archives 페이지에 반영되었으며, 코드는 다음과 같다. (&lt;a href=&quot;https://github.com/GAONNR/GAONNR.github.io&quot;&gt;Github - gaonnr.github.io&lt;/a&gt;의 archive.md에서 텍스트로 볼 수 있다)&lt;/p&gt;
 
-&lt;p&gt;```YAML&lt;/p&gt;
-&lt;div class=&quot;preview&quot;&gt;
-  &lt;h1 class=&quot;preview&quot;&gt;Archive&lt;/h1&gt;
-  &lt;ul class=&quot;preview-posts&quot;&gt;
-  
-    &lt;li&gt;
-    &lt;h3&gt;&lt;b name=&quot;Sample&quot;&gt;Sample&lt;categoryfont&gt;   : Category&lt;/categoryfont&gt;&lt;/b&gt;
-        
-          
-              
-          
-        
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/sample/2016/01/03/second-test/&quot;&gt;Second Post &lt;small&gt;03 Jan 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/sample/2016/01/03/about-me/&quot;&gt;About me &lt;small&gt;03 Jan 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/sample/2014/03/03/Hello-World/&quot;&gt;You&#39;re up and running! &lt;small&gt;03 Mar 2014&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/sample/2014/01/02/introducing-lanyon/&quot;&gt;Introducing Lanyon &lt;small&gt;02 Jan 2014&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/sample/2014/01/01/example-content/&quot;&gt;Example content &lt;small&gt;01 Jan 2014&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/sample/2013/12/31/whats-jekyll/&quot;&gt;What&#39;s Jekyll? &lt;small&gt;31 Dec 2013&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-        
-    &lt;/h3&gt;
-    &lt;/li&gt;
-  
-    &lt;li&gt;
-    &lt;h3&gt;&lt;b name=&quot;Setting&quot;&gt;Setting&lt;categoryfont&gt;   : Category&lt;/categoryfont&gt;&lt;/b&gt;
-        
-          
-              
-          
-        
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/setting/2016/05/07/Added-Category-Function-To-Blog/&quot;&gt;블로그에 Category 기능을 적용 &lt;small&gt;07 May 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/setting/2016/05/06/Using-NTFS-On-OSX/&quot;&gt;OS X에서 NTFS 사용하기 - OSXfuse, ntfs-3g &lt;small&gt;06 May 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/setting/2016/04/15/bought-domain/&quot;&gt;gaonnr.me 도메인 구매 &lt;small&gt;15 Apr 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/setting/2016/02/01/NewWebfont-Kopub/&quot;&gt;본문용으로 웹폰트 (Kopub바탕) 적용했습니다. &lt;small&gt;01 Feb 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/setting/2016/01/17/new-design/&quot;&gt;블로그 디자인 또 갈아엎었습니다. &lt;small&gt;17 Jan 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/setting/2016/01/03/deleted-webfonts/&quot;&gt;웹폰트 날렸습니다. &lt;small&gt;03 Jan 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-        
-    &lt;/h3&gt;
-    &lt;/li&gt;
-  
-    &lt;li&gt;
-    &lt;h3&gt;&lt;b name=&quot;sample&quot;&gt;sample&lt;categoryfont&gt;   : Category&lt;/categoryfont&gt;&lt;/b&gt;
-        
-          
-              
-          
-        
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/sample/2016/01/03/first-post/&quot;&gt;First Post &lt;small&gt;03 Jan 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-        
-    &lt;/h3&gt;
-    &lt;/li&gt;
-  
-    &lt;li&gt;
-    &lt;h3&gt;&lt;b name=&quot;Book&quot;&gt;Book&lt;categoryfont&gt;   : Category&lt;/categoryfont&gt;&lt;/b&gt;
-        
-          
-              
-          
-        
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/book/2016/01/17/shinsekai_mang/&quot;&gt;신세계에서 다 못읽게 생겼습니다. &lt;small&gt;17 Jan 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/book/2016/01/08/begin-reading-sinsekaikara/&quot;&gt;책 &#39;신세계에서&#39; 빌려 읽기 시작했습니다. &lt;small&gt;08 Jan 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-        
-    &lt;/h3&gt;
-    &lt;/li&gt;
-  
-    &lt;li&gt;
-    &lt;h3&gt;&lt;b name=&quot;Trip&quot;&gt;Trip&lt;categoryfont&gt;   : Category&lt;/categoryfont&gt;&lt;/b&gt;
-        
-          
-              
-          
-        
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/trip/2016/02/06/Sapporo-Trip-3/&quot;&gt;삿포로 여행 3일차 - 유키미쿠와 삿포로 팩토리, 삿포로 구도청사와 시계탑, 라면 거리, 스스키노 아이스 월드, 그리고 TV타워 &lt;small&gt;06 Feb 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/trip/2016/02/05/Sapporo-Trip-2/&quot;&gt;삿포로 여행 2일차 - 스스키노 역, 스프카레, 애니메이트와 멜론북스 등등, 그리고 징기스칸 &lt;small&gt;05 Feb 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/trip/2016/02/04/Sapporo-Trip-1/&quot;&gt;삿포로 여행 1일차 - 신 치토세 공항, 유키미쿠 스카이타운 &lt;small&gt;04 Feb 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-        
-    &lt;/h3&gt;
-    &lt;/li&gt;
-  
-    &lt;li&gt;
-    &lt;h3&gt;&lt;b name=&quot;Development&quot;&gt;Development&lt;categoryfont&gt;   : Category&lt;/categoryfont&gt;&lt;/b&gt;
-        
-          
-              
-          
-        
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/development/2016/04/18/Using-Swift-With-XCode-Playground/&quot;&gt;XCode의 playground를 이용하여 Swift 학습하기, 터미널(terminal)을 통해 Swift 코드 실행시키기 &lt;small&gt;18 Apr 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-              
-                  &lt;h4&gt;&lt;li&gt;&lt;a href=&quot;/development/2016/03/15/setting-vimrc/&quot;&gt;vimrc 설정하기 - 기본 설정 및 Plugin &lt;small&gt;15 Mar 2016&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;&lt;/h4&gt;
-              
-          
-        
-    &lt;/h3&gt;
-    &lt;/li&gt;
-  
-  &lt;/ul&gt;
-&lt;/div&gt;
-&lt;p&gt;```&lt;/p&gt;
+&lt;p align=&quot;CENTER&quot;&gt;
+  &lt;img src=&quot;/images/CategorySource.png&quot; style=&quot;width: 640px;&quot; /&gt;
+&lt;/p&gt;
 
-&lt;p&gt;원리는 대강 이해할 수 있었지만, CSS를 아직 감을 잡지 못해서, 야매로 이것저것 바꿔보면서 스타일을 적용하느라 애먹었다.&lt;br /&gt;
+&lt;p&gt;코드의 원리는 대강 이해할 수 있었지만, CSS를 아직 감을 잡지 못해서, 야매로 이것저것 바꿔보면서 스타일을 적용하느라 애먹었다.&lt;br /&gt;
 아직도 썩 맘에 드는 디자인을 만들진 못했지만, 이 정도로 만족하고 좀 더 생산적인 일을 해야겠다.&lt;/p&gt;
 </content>
  </entry>
