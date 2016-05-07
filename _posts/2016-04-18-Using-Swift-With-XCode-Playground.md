@@ -1,6 +1,7 @@
 ---
 layout: post
 title: XCode의 playground를 이용하여 Swift 학습하기, 터미널(terminal)을 통해 Swift 코드 실행시키기
+category: Development
 ---
 
 <span class="italics"> 이 글은 OS X, El Capitan, Swift 2.2 환경에서 작성되었습니다.</span>

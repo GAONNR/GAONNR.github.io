@@ -1,6 +1,7 @@
 ---
 layout: post
 title: OS X에서 NTFS 사용하기 - OSXfuse, ntfs-3g
+category: Setting
 ---
 
 OS X는 공식적으로 NTFS를 지원하지 않는다. 그러나 시중에 나와있는 외장

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 웹폰트 날렸습니다.
+category: Setting
 ---
 
 

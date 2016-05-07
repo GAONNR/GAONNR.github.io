@@ -1,6 +1,7 @@
 ---
 layout: post
 title: vimrc 설정하기 - 기본 설정 및 Plugin
+category: Development
 ---
 
 동아리에서 새로 판 서버에다 지금까지 로컬에서 썼던 `.vimrc`파일을 옮기려다가 mv대신 rm을 써서 날려먹었다.

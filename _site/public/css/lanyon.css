@@ -384,8 +384,13 @@ a.sidebar-nav-item:focus {
   list-style: none;
 }
 .preview-posts h3 {
+  margin-top: 2.0rem;
+  margin-bottom: 1.0rem;
+}
+.preview-posts h4 {
+  font-size: 140%;
   margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
 }
 .preview-posts li small {
   font-size: 75%;
@@ -398,7 +403,16 @@ a.sidebar-nav-item:focus {
 .preview-posts li a:hover small {
   color: inherit;
 }
-
+.preview-posts li b {
+  font-size: 140%;
+  color: #808080;
+  font-weight: 700;
+}
+.preview-posts li categoryfont {
+  font-size: 60%;
+  color: #bbb;
+  font-weight: 200;
+}
 /*
  * Pagination
  *

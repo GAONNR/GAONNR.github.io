@@ -1,6 +1,7 @@
 ---
 layout: post
 title: gaonnr.me 도메인 구매
+category: Setting
 ---
 
 원격 접속 및 블로그 리다이렉트용으로 사용하기 위해서 도메인을 구입하였다.  
