@@ -74,42 +74,28 @@ category: Otaku
 막귀라서 함부로 평을 내릴 수는 없지만, 개인적으론 퀄리티 높고 괜찮은 앨범이라고 생각한다.
 개인적으로 괜찮았던 몇 곡의 PV를 아래에 링크시켜 놓았다.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/o1iz4L-5zkQ" frameborder="0" allowfullscreen></iframe>
 <p align = "CENTER">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/o1iz4L-5zkQ" frameborder="0" allowfullscreen></iframe>
   <span class="italics">1. 気まぐれメルシィ(변덕 메르시) feat. 初音ミク</span>
-</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Kobrtyw97kU" frameborder="0" allowfullscreen></iframe>
-<p align = "CENTER">
   <span class="italics">2. Beautiful Nightmare feat. 巡音ルカ</span>
-</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sK92X82T3Sk" frameborder="0" allowfullscreen></iframe>
-<p align = "CENTER">
   <span class="italics">3-1. Blue Star feat. 初音ミク (MIKU EXPO ver.)</span>
-</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xSnuVnOZd1U" frameborder="0" allowfullscreen></iframe>
-<p align = "CENTER">
   <span class="italics">3-2. Blue Star feat. 初音ミク</span>
-</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rQCPXcckCaQ" frameborder="0" allowfullscreen></iframe>
-<p align = "CENTER">
   <span class="italics">4. デスクトップ・シンデレラ(데스크톱 신데렐라) feat. 初音ミク</span>
-</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/I_bs61WyzMk" frameborder="0" allowfullscreen></iframe>
-<p align = "CENTER">
   <span class="italics">5. Little Scarlet Bad Girl feat. 初音ミク</span>
-</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UGG7tUMg77A" frameborder="0" allowfullscreen></iframe>
-<p align = "CENTER">
   <span class="italics">6. Carry Me Off feat. 初音ミク</span>
-</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/06d8SwcSm_Q" frameborder="0" allowfullscreen></iframe>
-<p align = "CENTER">
   <span class="italics">7. Weekender Girl feat. 初音ミク</span>
 </p>
