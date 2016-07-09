@@ -11,7 +11,7 @@
 
   <title>
     
-      OS X에서 NTFS 사용하기 - OSXfuse, ntfs-3g &middot; GAON°NR
+      About me &middot; GAON°NR
     
   </title>
 
@@ -138,70 +138,31 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">OS X에서 NTFS 사용하기 - OSXfuse, ntfs-3g</h1>
-  <span class="post-date">06 May 2016</span>
-  <p>OS X는 공식적으로 NTFS를 지원하지 않는다. 그러나 시중에 나와있는 외장
-하드디스크들은 대부분 NTFS 포맷이므로, 대용량 자료들을 복사하기 위해서는 NTFS
-지원이 필요한 것이 사실이다. 본인은 최근까지
-<a href="http://enjoygineering.com/mounty/">Mounty</a>라는 3rd-party 프로그램을 사용하고
-있었으나, 매번 하드디스크를 연결할 때마다 Notification Popup이 떠서 번거롭기도
-했고, 몇 번 하드디스크에 에러를 발생시키기도 해서 다른 프로그램을 찾던 도중,
-OSXfuse와 ntfs-3g를 사용하여 NTFS로 디스크를 자동으로 mount하는 법을 발견하여
-시도해 보기로 했다. 비록 초기 설정은 Mounty에 비해 번거롭고, Command Line을
-사용하여 복잡해 보일 수도 있지만, 설정만 끝내면 그 이후론 별로 신경을 쓰지
-않아도 되어서 깔끔하니 좋은 것 같다.</p>
-
-<p>먼저 homebrew가 깔려 있다는 가정 하에 설명을 진행하겠다. 만약 homebrew가
-깔려있지 않다면, 적절한 검색을 통해 찾아보길 권한다.</p>
-
-<p>우선 다음 링크에서 <a href="https://github.com/osxfuse/osxfuse/releases">OSXfuse</a>를
-다운로드 받아 설치하자.</p>
-
-<p align="CENTER">
-    <img src="/images/Using_NTFS_on_OSX/01.png" style="width:
-    640px;" />
+  <h1 class="post-title">About me</h1>
+  <span class="post-date">03 Jan 2016</span>
+  <!--
+<p align = "center">
+  <img src = "/images/About_me.png" width = "250" height = "250">
 </p>
+-->
+<p><img style="float: right; width: 150px;" src="/images/About_me.png" /></p>
 
-<p>링크를 타고 들어가서, 조금 스크롤을 내리면 보이는 Downloads 항목에서
-osxfuse-3.2.0.dmg 파일을 다운로드 받아 설치하면 된다.</p>
+<h4 id="school">School</h4>
+<p>School of Computing, KAIST</p>
 
-<p>이후 터미널을 켜고 다음과 같은 명령어를 입력하여 homebrew를 설치하자.</p>
+<h4 id="contacts">Contacts</h4>
+<p>E-mail: <a href="mailto:gaon0403@gmail.com">gaon0403@gmail.com</a></p>
 
-<p><code class="highlighter-rouge">
-brew install homebrew/fuse/ntfs-3g
-</code></p>
+<p>Twitter: <a href="https://twitter.com/gaonnr0403">@gaonnr0403</a></p>
 
-<p>설치가 끝나면, 외장 하드디스크가 연결되었을 때 자동으로 mount하도록 설정을
-해줘야 하는데, El Capitan 이후로는 시스템의 일부 영역이 Root라고 할지라도 수정을
-할 수 없게 막혀 있다. 따라서 <a href="http://macnews.tistory.com/3408">이 포스트</a>를
-참고하여 Rootless를 해제하자. 부팅할 때 Cmd + R을 꾹 누르고 있으면 Recovery
-모드로 진입하며, 상단의 메뉴 막대에서 유틸리티 - 터미널을 선택하고, 다음
-명령어를 입력한다.</p>
+<p><br clear="left" /></p>
 
-<p><code class="highlighter-rouge">
-csrutil disable --without debug
-</code></p>
-
-<p>이제 Rootless의 해제가 완료되었다. 다시 정상적으로 부팅한 후 터미널을 켜서
-다음의 두 줄을 입력하자.</p>
-
-<p><code class="highlighter-rouge">
-sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
-sudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
-</code></p>
-
-<p>이후 컴퓨터를 재부팅한 후 외장 하드디스크를 연결해 보면, 자동으로 NTFS로
-mount되어 쓰기가 가능해진 것을 확인할 수 있다.</p>
-
-<p align="CENTER">
-    <img src="/images/Using_NTFS_on_OSX/02.png" style="width:
-    640px;" />
-</p>
-
-<p class="italics" align="CENTER">
-이 포스트의 내용은 <a href="http://www.howtogeek.com/236055/how-to-write-to-ntfs-drives-on-a-mac/">이
-링크</a>에서 일부를 참고하여 작성되었습니다.
-</p>
+<p>대전에 있는 K모 공대에서 전산학을 전공하고 있는 15학번 학부생입니다.<br />
+언제나 풋풋한 17세 여고생의 마음으로 살기 위해 노력하고 있습니다.<br />
+해킹 동아리에서 응원과 훼방을 담당하고 있습니다.<br />
+어따꾸지만, 조용히 덕질하기 위해 노력하고 있습니다. 나대는 것 같으면 핀잔 주세요.<br />
+블로그 관리를 자주 하지는 못합니다. 사실 시간은 많지만, 귀찮잖아요.<br />
+여행기, 덕질에 관한 포스트 가끔 올라옵니다. 나중에 실력이 되면, CTF 등 대회 Writeup이나 개발기 같은 것도 써서 올려볼 생각입니다.</p>
 
 </div>
 
@@ -229,9 +190,9 @@ mount되어 쓰기가 가능해진 것을 확인할 수 있다.</p>
     
       <li>
         <h3>
-          <a href="/development/2016/04/18/Using-Swift-With-XCode-Playground/">
-            XCode의 playground를 이용하여 Swift 학습하기, 터미널(terminal)을 통해 Swift 코드 실행시키기
-            <small>18 Apr 2016</small>
+          <a href="/setting/2016/05/06/Using-NTFS-On-OSX/">
+            OS X에서 NTFS 사용하기 - OSXfuse, ntfs-3g
+            <small>06 May 2016</small>
           </a>
         </h3>
       </li>
@@ -245,7 +206,7 @@ mount되어 쓰기가 가능해진 것을 확인할 수 있다.</p>
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = 'gaonnr'; // required: replace example with your forum shortname
-  var disqus_identifier = "/setting/2016/05/06/Using-NTFS-On-OSX/";
+  var disqus_identifier = "/setting/2016/01/03/about-me/";
 
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {

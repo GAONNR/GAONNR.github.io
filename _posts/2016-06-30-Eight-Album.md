@@ -76,26 +76,64 @@ category: Otaku
 
 <p align = "CENTER">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/o1iz4L-5zkQ" frameborder="0" allowfullscreen></iframe>
-  <span class="italics">1. 気まぐれメルシィ(변덕 메르시) feat. 初音ミク</span>
+</p>
 
+<p align = "CENTER">
+<span class="italics">1. 気まぐれメルシィ(변덕 메르시) feat. 初音ミク</span>
+</p>
+
+<p align = "CENTER">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Kobrtyw97kU" frameborder="0" allowfullscreen></iframe>
-  <span class="italics">2. Beautiful Nightmare feat. 巡音ルカ</span>
+</p>
 
+<p align = "CENTER">
+<span class="italics">2. Beautiful Nightmare feat. 巡音ルカ</span>
+</p>
+
+<p align = "CENTER">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sK92X82T3Sk" frameborder="0" allowfullscreen></iframe>
-  <span class="italics">3-1. Blue Star feat. 初音ミク (MIKU EXPO ver.)</span>
+</p>
 
+<p align = "CENTER">
+<span class="italics">3-1. Blue Star feat. 初音ミク (MIKU EXPO ver.)</span>
+</p>
+
+<p align = "CENTER">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xSnuVnOZd1U" frameborder="0" allowfullscreen></iframe>
-  <span class="italics">3-2. Blue Star feat. 初音ミク</span>
+</p>
 
+<p align = "CENTER">
+<span class="italics">3-2. Blue Star feat. 初音ミク</span>
+</p>
+
+<p align = "CENTER">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rQCPXcckCaQ" frameborder="0" allowfullscreen></iframe>
-  <span class="italics">4. デスクトップ・シンデレラ(데스크톱 신데렐라) feat. 初音ミク</span>
+</p>
 
+<p align = "CENTER">
+<span class="italics">4. デスクトップ・シンデレラ(데스크톱 신데렐라) feat. 初音ミク</span>
+</p>
+
+<p align = "CENTER">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/I_bs61WyzMk" frameborder="0" allowfullscreen></iframe>
-  <span class="italics">5. Little Scarlet Bad Girl feat. 初音ミク</span>
+</p>
 
+<p align = "CENTER">
+<span class="italics">5. Little Scarlet Bad Girl feat. 初音ミク</span>
+</p>
+
+<p align = "CENTER">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UGG7tUMg77A" frameborder="0" allowfullscreen></iframe>
-  <span class="italics">6. Carry Me Off feat. 初音ミク</span>
+</p>
 
+<p align = "CENTER">
+<span class="italics">6. Carry Me Off feat. 初音ミク</span>
+</p>
+
+<p align = "CENTER">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/06d8SwcSm_Q" frameborder="0" allowfullscreen></iframe>
-  <span class="italics">7. Weekender Girl feat. 初音ミク</span>
+</p>
+
+<p align = "CENTER">
+<span class="italics">7. Weekender Girl feat. 初音ミク</span>
 </p>
