@@ -4,13 +4,30 @@
  <title>GAON°NR</title>
  <link href="https://gaonnr.github.io/atom.xml" rel="self"/>
  <link href="https://gaonnr.github.io/"/>
- <updated>2016-07-10T01:52:20+09:00</updated>
+ <updated>2016-09-13T11:15:30+09:00</updated>
  <id>https://gaonnr.github.io</id>
  <author>
    <name>Junseop Ji</name>
    <email>gaon0403@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>자기소개서 글자 수 (Byte수) 카운팅 프로그램</title>
+   <link href="https://gaonnr.github.io/development/2016/09/13/jagisogae/"/>
+   <updated>2016-09-13T00:00:00+09:00</updated>
+   <id>https://gaonnr.github.io/development/2016/09/13/jagisogae</id>
+   <content type="html">&lt;p&gt;고등학교 2학년 때, 대입 원서를 쓸 당시 너무나도 딴짓이 하고 싶었던 나머지 자기 소개서의 글자 수를 세 주는 프로그램을 만들었는데, 어쩌다 보니 다음 해, 다다음 해에도 이 프로그램을 찾아주는 후배님들이 계셔서, 몇 달 전에 웹 페이지를 따로 제작하여 프로그램에 대한 정리와 함께 올려 두었다.&lt;/p&gt;
+
+&lt;p&gt;당시 하나도 모르던 C#(지금도 하나도 모른다)을 여기저기 구글링하면서 짠 프로그램이라, 꽤 엉성하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jagi.gaonnr.me&quot;&gt;자기소개서 글자 수 세기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p align=&quot;CENTER&quot;&gt;
+  &lt;img src=&quot;/images/2016_09/jagi_count.png&quot; style=&quot;width: 640px;&quot; /&gt;
+&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>八王子P 베스트 앨범 [Eight - The Best of 八王子P] 구매</title>
