@@ -36,7 +36,7 @@ rank 메뉴에 진입했을 때의 URL이 `http://chall.pwn-with.me/?page=rank`�
 
 먼저 주목해야 할 것은 info페이지의 19 ~ 35번 라인이다.
 
-```html
+```php
 <?PHP
   IF($_POST){
     IF($_SESSION[ID] == 'ADMIN') EXIT();
@@ -60,7 +60,7 @@ info 페이지는 사용자의 비멀번호를 변경할 수 있는 페이지인
 
 다음으로 login 페이지의 12 ~ 35번 라인에서 공격 방식에 대한 힌트를 찾을 수 있었다.
 
-```html
+```php
 <?PHP
 	IF($_POST){
 		IF($_SESSION[ID]){
@@ -90,7 +90,7 @@ info 페이지는 사용자의 비멀번호를 변경할 수 있는 페이지인
 
 이제 index 페이지의 75 ~ 80번 라인을 보면,
 
-```html
+```php
 <?PHP
 	IF(PREG_MATCH("/CONVERT|BASE64|DATA|UNION|SELECT|FROM|WHERE|SLEEP|BENCH|JOIN|CHAR|INFOR|SCHEMA|COLUMNS|LIKE|#|\)|\(|>|<|,|\*|!|\.\./",IMPLODE($_GET))) EXIT("DETECTED");
 	IF(PREG_MATCH("/CONVERT|BASE64|DATA|UNION|SELECT|FROM|WHERE|SLEEP|BENCH|JOIN|CHAR|INFOR|SCHEMA|COLUMNS|LIKE|#|\)|\(|>|<|,|\*|!|\.\./",IMPLODE($_POST))) EXIT("DETECTED");
