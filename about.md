@@ -11,8 +11,6 @@ School of Computing, KAIST
 #### Contacts
 E-mail: <a href = "mailto:gaon0403@gmail.com">gaon0403@gmail.com</a>
 
-Twitter: <a href = "https://twitter.com/_gaonnr_">@_gaonnr_</a>
-
 <br clear = "left">
 
 <span class="italics">(계정명인 gaonnr은 가온나래라고 읽습니다. 길게 풀어서 쓰면 별로 안좋더라구요....)</span>
