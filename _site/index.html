@@ -141,6 +141,188 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/development/2017/02/15/d3-study/">
+        D3를 통한 차트 제작 스터디
+      </a>
+    </h1>
+
+    <span class="post-date">15 Feb 2017</span>
+
+    <p><img src="/images/D3/d3_logo.png" alt="" /><br />
+<a href="https://d3js.org">D3</a>는 기본적으로 array형태로 묶인 데이터를 각각의 요소에 바인딩하고, 바인딩된 데이터를 통해 각 요소에 작업을 수행하는 라이브러리이다. 따라서, D3으로 차트를 만드는 모든 과정은 다음과 같은 과정을 거친다:<br />
+<code class="highlighter-rouge">데이터를 바인딩할 element 선택 -&gt; 데이터 바인딩 -&gt; element가 대응되지 않는 데이터들에 진입 -&gt; 데이터에 기반한 요소 추가 작업</code><br />
+여기서, 처음 차트를 생성할 때는 첫 단계에서 선택되는 데이터는 아무것도 없는 경우가 많다. 즉, 아무것도 없는(이제 element가 추가될) 빈 공간을 D3 selector를 통해 선택하고, 데이터를 바인딩한 후, 데이터 array 안에 존재하는 각각의 값을 이용하여 원하는 속성을 가지는 element를 하나하나 추가하는 방식으로 차트를 제작하는 방식이 보편적이라 할 수 있다.</p>
+
+<p>예를 들어, 다음과 같은 표를 제작하려 한다고 하자.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">name</th>
+      <th style="text-align: center">size(GB)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">C:</td>
+      <td style="text-align: center">128</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">D:</td>
+      <td style="text-align: center">512</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">E:</td>
+      <td style="text-align: center">16</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">F:</td>
+      <td style="text-align: center">8</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">G:</td>
+      <td style="text-align: center">8</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>먼저, 이 표를 구성하는 데이터를 입력받아야 한다. D3는 csv등의 다양한 포맷을 지원하지만, 결국 중요한 것은 최종적으로 Array 형태의 데이터를 만드는 것이다.<br />
+데이터가 csv파일이라면, 다음과 같이 구성되어 있을 것이다:</p>
+
+<p><code class="highlighter-rouge">javascript
+"name","size(GB)"
+"C:",128
+"D:",512
+"E:",16
+"F:",8
+"G:",8
+</code></p>
+
+<p>이를 받아서 Array의 형태의 data를 생성하는 코드는 다음과 같다:</p>
+
+<p>```javascript
+d3.csv(‘data.csv’, function(error, data) {
+  data.forEach(function (d, i) {
+    d.name = d.name; // meaningless code
+    d.size = +d.size;
+  });</p>
+
+<p>// callback function
+  draw(data);
+});
+```</p>
+
+<p><code class="highlighter-rouge">d3.csv()</code>함수는 첫 번째 argument의 string을 path로서 사용하여 해당 경로의 csv파일을 읽어들인 후 array로 변환하고, 이를 두 번재 argument로 설정된 함수에 data로서 넘긴다. 즉, 경로만 맞게 입력된다면 <code class="highlighter-rouge">d3.csv()</code>함수를 실행시키는 것만으로도 다음과 같은, Object들의 Array가 완성된다.</p>
+
+<p><code class="highlighter-rouge">javascript
+[{
+  'name': 'C:',
+  'size': '128'
+},
+{
+  'name': 'D:',
+  'size': '512'
+},
+/* ... */
+]
+</code></p>
+
+<p>이것만으로도 표를 구성하는 데에는 문제가 없지만, 만약 받아들인 데이터에 추가적인 작업을 하고 싶다면(예를 들어, size를 MB로 변환하고 싶다던가), forEach 함수를 활용하여 데이터를 수정할 수 있다. 위 코드에서는, <code class="highlighter-rouge">d.size = +d.size</code>라는 코드를 통해 문자열로 받아들여지는 size값을 숫자로 바꾸었다. (forEach에 argument로 반드시 d, i를 적을 필요는 없지만, D3의 Example 코드들을 보면, 많은 코드들이 암묵적으로 익명함수에 전달되는 argument를 d, i로 설정한다)</p>
+
+<p>데이터를 로드하는 과정은 비동기적으로 이루어지기 때문에, <code class="highlighter-rouge">d3.csv()</code> 뒤에 있는 코드라인들은 데이터가 다 로드되지 않아도 계속해서 실행된다. 따라서, 데이터가 다 로드된 다음 테이블을 그릴 수 있도록 하려면, 함수의 인자로 전달된 익명함수의 끝에 콜백 함수를 지정해 주어야 한다. 여기서는 <code class="highlighter-rouge">draw()</code>함수가 바깥에 선언되어 있다고 가정하고, 그 함수를 호출하여 표를 그릴 수 있도록 하였다.</p>
+
+<p>이제 표를 그리는 draw()함수를 살펴보면, 다음과 같은 구조를 띄고 있을 것이다.</p>
+
+<p>```javascript
+columns = [‘name’, ‘size’];</p>
+
+<p>function draw(data) {
+  var table = d3.select(‘#div-for-table’)
+    .append(‘table’)
+    .attr(‘class’, ‘table’);</p>
+
+<p>var thead = table.append(‘thead’)
+    .attr(‘class’, ‘thead’)
+    .append(‘tr’)
+    .selectAll(‘th’)
+    .data(columns)
+    .enter()
+    .append(‘th’)
+    .text(function(col) {
+      return col;
+    });</p>
+
+<p>var tbody = table.append(‘tbody’)
+    .selectAll(‘tr’)
+    .data(data)
+    .enter()
+    .append(‘tr’);</p>
+
+<p>var cells = tbody.selectAll(‘td’)
+    .data(function (row, i) {
+      return columns.map(function (col) {
+        return row[col];
+      });
+    })
+    .enter()
+    .append(‘td’)
+    .text(function(d) {
+      return d;
+    });
+}
+```</p>
+
+<p>처음의 <code class="highlighter-rouge">table</code>변수를 선언하면서 이루어지는 작업은 다음과 같다. 먼저, d3 selector로 table이 들어가게 될 공간을 선택한다. (d3 selector는 jquery와 기능이 거의 유사하다) 그 후, 그 자식 element로 <code class="highlighter-rouge">&lt;table&gt;</code>을 추가하고, <code class="highlighter-rouge">'table'</code>이라는 class를 부여한다. 이 모든 과정은 코드에서 보이는 바와 같이 함수형 프로그래밍과 유사하게 짜여질 수 있다.</p>
+
+<p>다음의 <code class="highlighter-rouge">thead</code>는 선언되면서 <code class="highlighter-rouge">&lt;table&gt;</code>에 <code class="highlighter-rouge">th</code>들을 추가한다. 먼저 위에서 선언된 <code class="highlighter-rouge">table</code> variable 안에 <code class="highlighter-rouge">&lt;thead&gt;</code> element를 추가하고 <code class="highlighter-rouge">'thead'</code> class를 부여한다. 거기에 다시 <code class="highlighter-rouge">&lt;tr&gt;</code> element를 추가하고, 그 안에서 <code class="highlighter-rouge">selectAll()</code>함수로 모든 <code class="highlighter-rouge">&lt;th&gt;</code> element를 선택한다. 이 때, <code class="highlighter-rouge">&lt;tr&gt;</code>안에는 아직 어떤 element도 들어가 있지 않으므로, 아무것도 선택되지 않게 되는데, 이 다음부터가 차트를 만드는 과저의 핵심이다. 이 선택된 element들에게 <code class="highlighter-rouge">data()</code>함수로 data array를 1:1로 바인딩한다. 그런데 <code class="highlighter-rouge">selectAll()</code>함수로는 아무것도 선택되지 않은 상태이기 때문에, 데이터의 전부가 매칭되지 않고 남게 된다. 바로 이 때, <code class="highlighter-rouge">enter()</code>함수가 사용된다.</p>
+
+<p>이 함수는 <strong>매칭(바인딩)되지 않은 데이터에 하나하나씩 접근해, 그 데이터에 대해 동작을 수행할 수 있게 한다.</strong> 바인딩되지 않은 데이터들에 대한 <code class="highlighter-rouge">forEach()</code> 함수라고 보면 되겠다.</p>
+
+<p>이제 <code class="highlighter-rouge">enter()</code>함수를 통해 각각의 데이터들에 진입한 상태인데, 뒤에 <code class="highlighter-rouge">.append('th').text(...)</code> 코드가 있으므로 각각의 데이터에 대해 <code class="highlighter-rouge">&lt;th&gt;</code> element가 추가된다. 즉, <code class="highlighter-rouge">columns</code>에 들어 있는 원소의 개수(2개)만큼의 <code class="highlighter-rouge">&lt;th&gt;</code>가 추가된다. enter함수는 뒤에 오는 함수들에게 인자로 지금의 데이터와 인덱스를 넘겨줄 수 있는데, 이 코드에서는 <code class="highlighter-rouge">text()</code> 함수 내부의 익명 함수가 <code class="highlighter-rouge">col</code>으로 데이터(문자열 ‘name’과 ‘size’)를 받아 그 값을 반환한다. 최종적으로, 각각 <code class="highlighter-rouge">'name'</code>과 <code class="highlighter-rouge">'size'</code>라는 문자열을 표시하는 <code class="highlighter-rouge">&lt;th&gt;</code> element가 <code class="highlighter-rouge">&lt;tr&gt;</code> 내부에 추가된다.</p>
+
+<p><code class="highlighter-rouge">tbody</code>도 위와 비슷한 역할을 하는데, 다른 점이 있다면 바인딩하는 데이터가 csv파일에서 직접 뽑아낸 데이터라는 것과, <code class="highlighter-rouge">&lt;thead&gt;&lt;tr&gt;</code>에 <code class="highlighter-rouge">&lt;th&gt;</code>를 추가하는 대신 <code class="highlighter-rouge">&lt;tbody&gt;</code> 안에 data의 길이와 같은 개수의 <code class="highlighter-rouge">&lt;tr&gt;</code>을 추가한다는 것이다.</p>
+
+<p><code class="highlighter-rouge">cells</code>의 경우, 위에서 선언된 tbody 안에 진입하여 <code class="highlighter-rouge">&lt;td&gt;</code>원소를 추가한다. 이때, 바인딩하는 데이터는 이미 각각의 row에 바인딩된 데이터를 기반으로 주어지는데, 만약 어떤 row에 바인딩된 데이터가 <code class="highlighter-rouge"><span class="p">{</span><span class="err">'name':</span><span class="w"> </span><span class="err">'C:',</span><span class="w"> </span><span class="err">'size':</span><span class="w"> </span><span class="err">128</span><span class="p">}</span></code>이라면, 익명 함수에 의해 반환되는 데이터는 <code class="highlighter-rouge">['C:', 128]</code>로서, 이 데이터를 토대로 <code class="highlighter-rouge">&lt;td&gt;</code>, 즉 table 각각의 row 내부의 cell이 추가된다.</p>
+
+<p>모든 작업이 끝나면 다음과 같은 html코드가 생성되며, 이는 우리가 만들려 한 표와 같은 구조를 이룰 것이다. 적당한 css파일을 갖고 있다면, 표의 각 원소에 적절한 class나 style을 줌으로써 표의 외양을 바꿀 수도 있다.</p>
+
+<p>```html</p>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>name</th>
+      <th>size(GB)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>C:</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td>D:</td>
+      <td>512</td>
+    </tr>
+    <tr>
+      <td>E:</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>F:</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>G:</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+<p>```</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/hacking/2016/09/24/kapo-writeup/">
         2016 Kaist - Postech Science War Writeup (wargame_easy | Web 200pt)
       </a>
@@ -339,151 +521,6 @@ else:
 
 <p align="CENTER">
   <img src="/images/2016_09/jagi_count.png" style="width: 640px;" />
-</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/otaku/2016/06/30/Eight-Album/">
-        八王子P 베스트 앨범 [Eight - The Best of 八王子P] 구매
-      </a>
-    </h1>
-
-    <span class="post-date">30 Jun 2016</span>
-
-    <p>몇 주 전에 하치오지P(八王子P)의 베스트 앨범이 발매된다는 소식을 들었다. 원래 그렇게 좋아하는 보컬로이드 프로듀서는 아니었지만, 저번 삿포로 여행에서 DJ Live에 참가하고 나서 호감을 가지게 되어 심심할 때마다 음악을 듣고 있었는데, 베스트 앨범이 발매된다고 하길래 조금의 고민 끝에 구매를 결정했다.</p>
-
-<p>초회한정판과 일반판 두 가지로 나뉘어 발매되었는데, 앨범 일러스트가 다르고, 초회한정판에는 주요 곡들의 PV가 담긴 DVD가 동봉되어 있다. 본인은 초회한정판을 구매했다.</p>
-
-<p align="CENTER">
-    <img src="/images/2016_07/01.jpg" style="width: 480px;" />
-    <img src="/images/2016_07/02.jpg" style="width: 480px;" />
-    <span class="italics">앨범의 모습. 사진으론 모르겠지만 꽤 두껍다.</span>
-</p>
-
-<p align="CENTER">
-    <img src="/images/2016_07/03.jpg" style="width: 480px;" />
-    <img src="/images/2016_07/04.jpg" style="width: 480px;" />
-    <span class="italics">뜯어보면 요래 생겼다. 미쿠 말고도 구미 일러스트가 보인다. 초회한정판이라 CD는 총 3개이다.</span>
-</p>
-
-<p align="CENTER">
-    <img src="/images/2016_07/05.jpg" style="width: 480px;" />
-    <span class="italics">사실 기본판보다 일러스트가 더 취향이라서 초회한정판을 샀다.... DVD 화질이 그리 좋은 것도 아니고 사실 유튜브 공식 채널에 PV는 다 올라와 있다.</span>
-</p>
-
-<p>베스트 앨범이다 보니 곡이 많은데, ‘BLACK STAR’와 ‘WHITE MOON’이라고 이름붙여진 두 개의 CD에 나뉘어 수록되어 있다. CD에 들어간 곡들의 분위기에 맞게 이름을 붙인 느낌이다.
-총 36곡이며, 리스트는 다음과 같다.</p>
-
-<p>```
-★BLACK STAR
-01      気まぐれメルシィ feat. 初音ミク
-02      Sweet Devil -Eight Mix- feat. 初音ミク
-03      Baby Maniacs -Eight Mix- feat. 初音ミク
-04      fake doll feat. 初音ミク
-05      Little Scarlet Bad Girl feat. 初音ミク
-06      Carry Me Off feat. 初音ミク
-07      KiLLER LADY -Eight Mix- feat. GUMI
-08      GAME OVER feat. 初音ミク
-09      Heart Chrome feat. 杏音鳥音
-10      Mad Lovers -Eight Mix- feat. 巡音ルカ
-11      Free -Eight Mix- feat. 巡音ルカ
-12      candii -Eight Mix- feat. 初音ミク
-13      REWRITER feat. GUMI
-14      rock -Eight Mix- feat. 初音ミク・巡音ルカ
-15      Distorted Princess -Eight Mix- feat. 初音ミク・巡音ルカ
-16      Dream Creator feat. GUMI
-17      Beautiful Nightmare feat. 巡音ルカ
-18      Queen of the Night feat. 初音ミク・巡音ルカ</p>
-
-<p>☆WHITE MOON</p>
-
-<p>01      Blue Star feat. 初音ミク
-02      Weekender Girl feat. 初音ミク
-03      エレクトリック・ラブ -Eight Mix- feat. 初音ミク
-04      デスクトップ・シンデレラ feat. 初音ミク
-05      Twinkle World feat. 初音ミク
-06      HORIZON feat. 初音ミク
-07      シューティングスター feat. 鏡音リン・鏡音レン
-08      Keep Only One Love -Eight Mix- feat. 初音ミク
-09      Tomorrow feat. 初音ミク
-10      TRAP × TRAP feat. 初音ミク
-11      エレクトリック・スター -Eight Mix- feat. GUMI
-12      FUTURE DRIVER feat. 初音ミク
-13      エレクトリック・マジック feat. 鏡音リン・鏡音レン
-14      whiteout -Eight Mix- feat. 初音ミク
-15      フカヨミ feat. 初音ミク
-16      弱虫ロケット feat. 初音ミク
-17      Yeah! Yeah!! Yeah!!! feat. 初音ミク
-18      Step To Tomorrow feat. 初音ミク・鏡音リン・鏡音レン・巡音ルカ・GUMI
-```</p>
-
-<p>막귀라서 함부로 평을 내릴 수는 없지만, 개인적으론 퀄리티 높고 괜찮은 앨범이라고 생각한다.
-개인적으로 괜찮았던 몇 곡의 PV를 아래에 링크시켜 놓았다.</p>
-
-<p align="CENTER">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/o1iz4L-5zkQ" frameborder="0" allowfullscreen=""></iframe>
-</p>
-
-<p align="CENTER">
-<span class="italics">1. 気まぐれメルシィ(변덕 메르시) feat. 初音ミク</span>
-</p>
-
-<p align="CENTER">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Kobrtyw97kU" frameborder="0" allowfullscreen=""></iframe>
-</p>
-
-<p align="CENTER">
-<span class="italics">2. Beautiful Nightmare feat. 巡音ルカ</span>
-</p>
-
-<p align="CENTER">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sK92X82T3Sk" frameborder="0" allowfullscreen=""></iframe>
-</p>
-
-<p align="CENTER">
-<span class="italics">3-1. Blue Star feat. 初音ミク (MIKU EXPO ver.)</span>
-</p>
-
-<p align="CENTER">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xSnuVnOZd1U" frameborder="0" allowfullscreen=""></iframe>
-</p>
-
-<p align="CENTER">
-<span class="italics">3-2. Blue Star feat. 初音ミク</span>
-</p>
-
-<p align="CENTER">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rQCPXcckCaQ" frameborder="0" allowfullscreen=""></iframe>
-</p>
-
-<p align="CENTER">
-<span class="italics">4. デスクトップ・シンデレラ(데스크톱 신데렐라) feat. 初音ミク</span>
-</p>
-
-<p align="CENTER">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/I_bs61WyzMk" frameborder="0" allowfullscreen=""></iframe>
-</p>
-
-<p align="CENTER">
-<span class="italics">5. Little Scarlet Bad Girl feat. 初音ミク</span>
-</p>
-
-<p align="CENTER">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UGG7tUMg77A" frameborder="0" allowfullscreen=""></iframe>
-</p>
-
-<p align="CENTER">
-<span class="italics">6. Carry Me Off feat. 初音ミク</span>
-</p>
-
-<p align="CENTER">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/06d8SwcSm_Q" frameborder="0" allowfullscreen=""></iframe>
-</p>
-
-<p align="CENTER">
-<span class="italics">7. Weekender Girl feat. 初音ミク</span>
 </p>
 
   </div>
