@@ -11,7 +11,7 @@
 
   <title>
     
-      가온나래 &middot; blog
+      G40N &middot; blog
     
   </title>
 
@@ -118,7 +118,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; 2016. All rights reserved.
+      &copy; 2017. All rights reserved.
     </p>
   </div>
 </div>
@@ -130,7 +130,7 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="/" title="Home">가온나래</a>
+            <a href="/" title="Home">G40N</a>
             <small>blog</small>
           </h3>
         </div>
@@ -180,23 +180,23 @@ Register 메뉴를 통해 사이트에 가입한 후 로그인하면 다음과 �
 
 <p>먼저 주목해야 할 것은 info페이지의 19 ~ 35번 라인이다.</p>
 
-<p><code class="highlighter-rouge">PHP
+<p><code class="highlighter-rouge">php
 &lt;?PHP
-	IF($_POST){
-	   IF($_SESSION[ID] == 'ADMIN') EXIT();
-     IF($_POST[PW] == ""){
-				ECHO "&lt;SCRIPT&gt;ALERT('INPUT YOUR PASSWORD.');HISTORY.GO(-1);&lt;/SCRIPT&gt;";
-			  EXIT();
-     }
-		 IF(STRLEN($_POST[PW]) &gt; 32){
-		    ECHO "&lt;SCRIPT&gt;ALERT('CAN'T CREATE PASSWORD BIGGER THAN 32 BYTES.');HISTORY.GO(-1);&lt;/SCRIPT&gt;";
-				EXIT();
-		 }
-		 $_POST[PW] = ADDSLASHES($_POST[PW]);
-		 $SQL = "UPDATE MEMBER SET PW = '$_POST[PW]' WHERE ID = '$_SESSION[ID]'";
-		 $Q = @MYSQL_QUERY($SQL);
-		 ECHO "&lt;SCRIPT&gt;ALERT('PW CHANGED.');LOCATION.HREF='?PAGE=INFO';&lt;/SCRIPT&gt;";
-	}
+  IF($_POST){
+    IF($_SESSION[ID] == 'ADMIN') EXIT();
+    IF($_POST[PW] == ""){
+      ECHO "&lt;SCRIPT&gt;ALERT('INPUT YOUR PASSWORD.');HISTORY.GO(-1);&lt;/SCRIPT&gt;";
+      EXIT();
+    }
+    IF(STRLEN($_POST[PW]) &gt; 32){
+      ECHO "&lt;SCRIPT&gt;ALERT('CAN'T CREATE PASSWORD BIGGER THAN 32 BYTES.');HISTORY.GO(-1);&lt;/SCRIPT&gt;";
+      EXIT();
+    }
+    $_POST[PW] = ADDSLASHES($_POST[PW]);
+    $SQL = "UPDATE MEMBER SET PW = '$_POST[PW]' WHERE ID = '$_SESSION[ID]'";
+    $Q = @MYSQL_QUERY($SQL);
+    ECHO "&lt;SCRIPT&gt;ALERT('PW CHANGED.');LOCATION.HREF='?PAGE=INFO';&lt;/SCRIPT&gt;";
+  }
 ?&gt;
 </code></p>
 
@@ -204,7 +204,7 @@ Register 메뉴를 통해 사이트에 가입한 후 로그인하면 다음과 �
 
 <p>다음으로 login 페이지의 12 ~ 35번 라인에서 공격 방식에 대한 힌트를 찾을 수 있었다.</p>
 
-<p><code class="highlighter-rouge">PHP
+<p><code class="highlighter-rouge">php
 &lt;?PHP
 	IF($_POST){
 		IF($_SESSION[ID]){
@@ -234,7 +234,7 @@ Register 메뉴를 통해 사이트에 가입한 후 로그인하면 다음과 �
 
 <p>이제 index 페이지의 75 ~ 80번 라인을 보면,</p>
 
-<p><code class="highlighter-rouge">PHP
+<p><code class="highlighter-rouge">php
 &lt;?PHP
 	IF(PREG_MATCH("/CONVERT|BASE64|DATA|UNION|SELECT|FROM|WHERE|SLEEP|BENCH|JOIN|CHAR|INFOR|SCHEMA|COLUMNS|LIKE|#|\)|\(|&gt;|&lt;|,|\*|!|\.\./",IMPLODE($_GET))) EXIT("DETECTED");
 	IF(PREG_MATCH("/CONVERT|BASE64|DATA|UNION|SELECT|FROM|WHERE|SLEEP|BENCH|JOIN|CHAR|INFOR|SCHEMA|COLUMNS|LIKE|#|\)|\(|&gt;|&lt;|,|\*|!|\.\./",IMPLODE($_POST))) EXIT("DETECTED");
@@ -256,7 +256,7 @@ Register 메뉴를 통해 사이트에 가입한 후 로그인하면 다음과 �
 
 <p>이를 login의 id에 넣으면 다음과 같은 SQL Query가 완성된다.</p>
 
-<p><code class="highlighter-rouge">SQL
+<p><code class="highlighter-rouge">sql
 SELECT * FROM MEMBER WHERE ID = 'fqwrlqwrhqwklhflqfi123123' or CASE WHEN id='admin' AND pw LikE 'a%' THEN TRUE ELSE FALSE END or id='godj3' order by id asc -- a
 </code></p>
 

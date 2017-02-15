@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>가온나래</title>
+ <title>G40N</title>
  <link href="https://blog.gaonnr.me/atom.xml" rel="self"/>
  <link href="https://blog.gaonnr.me/"/>
- <updated>2016-09-25T13:12:48+09:00</updated>
+ <updated>2017-02-15T14:09:11+09:00</updated>
  <id>https://blog.gaonnr.me</id>
  <author>
    <name>Junseop Ji</name>
@@ -49,23 +49,23 @@ Register 메뉴를 통해 사이트에 가입한 후 로그인하면 다음과 �
 
 &lt;p&gt;먼저 주목해야 할 것은 info페이지의 19 ~ 35번 라인이다.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PHP
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;php
 &amp;lt;?PHP
-	IF($_POST){
-	   IF($_SESSION[ID] == &#39;ADMIN&#39;) EXIT();
-     IF($_POST[PW] == &quot;&quot;){
-				ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;INPUT YOUR PASSWORD.&#39;);HISTORY.GO(-1);&amp;lt;/SCRIPT&amp;gt;&quot;;
-			  EXIT();
-     }
-		 IF(STRLEN($_POST[PW]) &amp;gt; 32){
-		    ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;CAN&#39;T CREATE PASSWORD BIGGER THAN 32 BYTES.&#39;);HISTORY.GO(-1);&amp;lt;/SCRIPT&amp;gt;&quot;;
-				EXIT();
-		 }
-		 $_POST[PW] = ADDSLASHES($_POST[PW]);
-		 $SQL = &quot;UPDATE MEMBER SET PW = &#39;$_POST[PW]&#39; WHERE ID = &#39;$_SESSION[ID]&#39;&quot;;
-		 $Q = @MYSQL_QUERY($SQL);
-		 ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;PW CHANGED.&#39;);LOCATION.HREF=&#39;?PAGE=INFO&#39;;&amp;lt;/SCRIPT&amp;gt;&quot;;
-	}
+  IF($_POST){
+    IF($_SESSION[ID] == &#39;ADMIN&#39;) EXIT();
+    IF($_POST[PW] == &quot;&quot;){
+      ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;INPUT YOUR PASSWORD.&#39;);HISTORY.GO(-1);&amp;lt;/SCRIPT&amp;gt;&quot;;
+      EXIT();
+    }
+    IF(STRLEN($_POST[PW]) &amp;gt; 32){
+      ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;CAN&#39;T CREATE PASSWORD BIGGER THAN 32 BYTES.&#39;);HISTORY.GO(-1);&amp;lt;/SCRIPT&amp;gt;&quot;;
+      EXIT();
+    }
+    $_POST[PW] = ADDSLASHES($_POST[PW]);
+    $SQL = &quot;UPDATE MEMBER SET PW = &#39;$_POST[PW]&#39; WHERE ID = &#39;$_SESSION[ID]&#39;&quot;;
+    $Q = @MYSQL_QUERY($SQL);
+    ECHO &quot;&amp;lt;SCRIPT&amp;gt;ALERT(&#39;PW CHANGED.&#39;);LOCATION.HREF=&#39;?PAGE=INFO&#39;;&amp;lt;/SCRIPT&amp;gt;&quot;;
+  }
 ?&amp;gt;
 &lt;/code&gt;&lt;/p&gt;
 
@@ -73,7 +73,7 @@ Register 메뉴를 통해 사이트에 가입한 후 로그인하면 다음과 �
 
 &lt;p&gt;다음으로 login 페이지의 12 ~ 35번 라인에서 공격 방식에 대한 힌트를 찾을 수 있었다.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PHP
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;php
 &amp;lt;?PHP
 	IF($_POST){
 		IF($_SESSION[ID]){
@@ -103,7 +103,7 @@ Register 메뉴를 통해 사이트에 가입한 후 로그인하면 다음과 �
 
 &lt;p&gt;이제 index 페이지의 75 ~ 80번 라인을 보면,&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PHP
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;php
 &amp;lt;?PHP
 	IF(PREG_MATCH(&quot;/CONVERT|BASE64|DATA|UNION|SELECT|FROM|WHERE|SLEEP|BENCH|JOIN|CHAR|INFOR|SCHEMA|COLUMNS|LIKE|#|\)|\(|&amp;gt;|&amp;lt;|,|\*|!|\.\./&quot;,IMPLODE($_GET))) EXIT(&quot;DETECTED&quot;);
 	IF(PREG_MATCH(&quot;/CONVERT|BASE64|DATA|UNION|SELECT|FROM|WHERE|SLEEP|BENCH|JOIN|CHAR|INFOR|SCHEMA|COLUMNS|LIKE|#|\)|\(|&amp;gt;|&amp;lt;|,|\*|!|\.\./&quot;,IMPLODE($_POST))) EXIT(&quot;DETECTED&quot;);
@@ -125,7 +125,7 @@ Register 메뉴를 통해 사이트에 가입한 후 로그인하면 다음과 �
 
 &lt;p&gt;이를 login의 id에 넣으면 다음과 같은 SQL Query가 완성된다.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SQL
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sql
 SELECT * FROM MEMBER WHERE ID = &#39;fqwrlqwrhqwklhflqfi123123&#39; or CASE WHEN id=&#39;admin&#39; AND pw LikE &#39;a%&#39; THEN TRUE ELSE FALSE END or id=&#39;godj3&#39; order by id asc -- a
 &lt;/code&gt;&lt;/p&gt;
 
@@ -1149,37 +1149,6 @@ autocmd VimEnter * call StartUp()
 &lt;p&gt;여러분 웹브라우저 이쁜폰트 기본으로 설정하시고 쓰세요&lt;/p&gt;
 
 &lt;p&gt;(아니면 맥 쓰던가)&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>About me</title>
-   <link href="https://blog.gaonnr.me/setting/2016/01/03/about-me/"/>
-   <updated>2016-01-03T00:00:00+09:00</updated>
-   <id>https://blog.gaonnr.me/setting/2016/01/03/about-me</id>
-   <content type="html">&lt;!--
-&lt;p align = &quot;center&quot;&gt;
-  &lt;img src = &quot;/images/About_me.png&quot; width = &quot;250&quot; height = &quot;250&quot;&gt;
-&lt;/p&gt;
---&gt;
-&lt;p&gt;&lt;img style=&quot;float: right; width: 150px;&quot; src=&quot;/images/About_me.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;school&quot;&gt;School&lt;/h4&gt;
-&lt;p&gt;School of Computing, KAIST&lt;/p&gt;
-
-&lt;h4 id=&quot;contacts&quot;&gt;Contacts&lt;/h4&gt;
-&lt;p&gt;E-mail: &lt;a href=&quot;mailto:gaon0403@gmail.com&quot;&gt;gaon0403@gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Twitter: &lt;a href=&quot;https://twitter.com/gaonnr0403&quot;&gt;@gaonnr0403&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br clear=&quot;left&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;대전에 있는 K모 공대에서 전산학을 전공하고 있는 15학번 학부생입니다.&lt;br /&gt;
-언제나 풋풋한 17세 여고생의 마음으로 살기 위해 노력하고 있습니다.&lt;br /&gt;
-해킹 동아리에서 응원과 훼방을 담당하고 있습니다.&lt;br /&gt;
-어따꾸지만, 조용히 덕질하기 위해 노력하고 있습니다. 나대는 것 같으면 핀잔 주세요.&lt;br /&gt;
-블로그 관리를 자주 하지는 못합니다. 사실 시간은 많지만, 귀찮잖아요.&lt;br /&gt;
-여행기, 덕질에 관한 포스트 가끔 올라옵니다. 나중에 실력이 되면, CTF 등 대회 Writeup이나 개발기 같은 것도 써서 올려볼 생각입니다.&lt;/p&gt;
 </content>
  </entry>
  

@@ -5,7 +5,7 @@ permalink:           pretty
 gems: [jekyll-paginate]
 
 # Setup
-title:               가온나래
+title:               G40N
 tagline:             'blog'
 description:         'The blog about Hacking, Programming, Anime, etc.'
 url:                 https://blog.gaonnr.me
