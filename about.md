@@ -15,6 +15,8 @@ E-mail: <a href="mailto:gaon0403@gmail.com">gaon0403@gmail.com</a>
 
 #### Interests
 
+NLP, Web, Web hacking, Anime, VOCALOID, SC2
+
 <br clear="left">
 
 <span class="italics">Profile Image by Mika Pikazo.</span>
