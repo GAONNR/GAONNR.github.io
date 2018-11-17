@@ -3,21 +3,24 @@ layout: page
 title: About
 ---
 
-<img style="float: right; width: 150px;" src="{{ site.baseurl }}/images/About_me.png">
+<img style="float: right; width: 150px;" src="{{ site.baseurl }}/images/about_me.jpg">
 
 #### School
+
 School of Computing, KAIST
 
 #### Contacts
-E-mail: <a href = "mailto:gaon0403@gmail.com">gaon0403@gmail.com</a>
 
-<br clear = "left">
+E-mail: <a href="mailto:gaon0403@gmail.com">gaon0403@gmail.com</a>
 
-<span class="italics">(계정명인 gaonnr은 가온나래라고 읽습니다. 길게 풀어서 쓰면 별로 안좋더라구요....)</span>
+#### Interests
 
-대전공대 전산학부에 소속되어 있습니다.
-해킹 동아리에서 정화부장을 맡고 있지만 동아리방은 아직도 더럽기만 합니다.
-주변에 갓갓갓들이 너무 많아서 하루하루 절망하며 살고 있습니다.
-지금은 잡다한 것밖에 올리지 않습니다만, 언젠가 블로그를 Writeup으로 가득 채우는 게 꿈입니다.
+<br clear="left">
+
+<span class="italics">Profile Image by Mika Pikazo.</span>
+
+G40N = GAON = 김가온으로 부르시면 됩니다.
+
+KAIST 해킹 동아리 GoN에서 해킹 (특히 웹 해킹)을 공부했었다가, 요새는 Natural Language Processing 쪽을 공부하고 있습니다.
 
 {% include disqus.html %}

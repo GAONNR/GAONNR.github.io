@@ -1,22 +1,22 @@
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
+permalink: pretty
 gems: [jekyll-paginate]
 
 # Setup
-title:               G40N
-tagline:             'blog'
-description:         'The blog about Hacking, Programming, Anime, etc.'
-url:                 https://blog.gaonnr.me
-baseurl:             ''
-paginate:            3
+title: G40N
+tagline: "blog"
+description: "The blog about NLP, Hacking, Programming, Anime, etc."
+url: https://blog.gaonnr.me
+baseurl: ""
+paginate: 3
 
 # About/contact
 author:
-  name:              Junseop Ji
-  url:               https://github.com/gaonnr
-  email:             gaon0403@gmail.com
+  name: Junseop Ji
+  url: https://github.com/gaonnr
+  email: gaon0403@gmail.com
 
 # Custom vars
-version:             1.0.0
+version: 1.0.0
